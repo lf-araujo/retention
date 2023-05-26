@@ -1,0 +1,251 @@
+---
+title: "Inspecting data and initial modeling attempts"
+subtitle: "ABCD retention WG"
+author: "Luis Castro-de-Araujo ^[Post-doc T32. luis.araujo@vcuhealth.org  \n]"
+date: "`r format(Sys.time(), '%d %B, %Y' )`"
+institute: Virginia Institute for Psychiatric and Behavioral Genetics 
+lang: en
+output:
+  html_notebook:
+    code_folding: hide
+    highlight: zenburn
+    theme: flatly
+    toc: yes
+    df_print: paged    
+    toc_float: yes
+    code_downloading: yes
+---
+
+
+```{r setup, include=FALSE}
+
+c( # I use linux, this saves my time loading/installing packages
+  "ProjectTemplate", "here", "stringr",
+  "dplyr", "knitr", "ggplot2", "tabplot",
+  "patchwork", "tableone", "tidyr", "visdat", "glmnet",
+  "doParallel", "kableExtra"
+) |>
+  lapply(function(x) {
+    if (!require(x, character.only = TRUE)) {
+      install.packages(x, dependencies = TRUE)
+      library(x)
+    }
+  })
+
+set.seed(42) # setting seed for stochastic functions
+setwd("..") # here()) # needed as we are in /src, in linux here() should be used
+
+load.project() # Loading the project
+pclean()
+
+# R options
+options(
+  digits = 3, # Only two decimal digits
+  scipen = 999, # Remove scientific notation
+  width = 100
+)
+
+
+# Knitr options
+knitr::opts_chunk$set(
+  comment = NA, # remove comment symbol
+  cache.path = "../cache/", # where should I save cache?
+  fig.path = "../graphs/", # where should I save figures?
+  echo = T, # dont echo by default
+  cache = F, # dont cache by default
+  fig.width = 10, # setting the best witdth for figures
+  fig.height = 7, # best height
+  dpi = 300, # high dpi for publication quality,
+  error = FALSE # do not interrupt in case of errors
+)
+
+
+cb_palette <- c(
+  "#999999", "#E69F00", "#56B4E9", "#009E73",
+  "#F0E442", "#0072B2", "#D55E00", "#CC79A7"
+)
+
+theme_luis <- function() {
+  return_theme <- ggplot2::theme_bw(12) +
+    ggplot2::theme(
+      panel.border = element_rect(colour = "black"),
+      legend.background = element_rect(linetype = 1, size = 0.2, colour = 1)
+    )
+}
+
+# register parallel backend
+cl <- makeCluster(detectCores(), outfile = "")
+registerDoParallel(cl)
+```
+
+
+```{r munge}
+
+retention  <- read.csv("~/Downloads/dataIndiv_ID_2023-03-08.csv") %>%
+  filter(event == "Baseline" | event == "1 Year") %>%
+  select(pguid, event, visit_status_aggr, income_household, site, race_ethnicity, education) %>%
+  mutate(missed = ifelse(visit_status_aggr == "Missed (explained)" |
+                visit_status_aggr == "Missed (unexplained)", 1, 0))
+
+# below is a version with wide format, which is the correct way, but there is an oddity in
+# the data that the values for some demographic info only appear at the follow up, not at the baseline
+# so I suppose the data was joined incorrectly.
+
+# retention_wide <- dataIndiv_ID_2023.03.08 %>%
+#   select(pguid, event, visit_status_aggr, income_household, site, race_ethnicity, education) %>%
+#   group_by(pguid) %>%
+#   filter(event == "Baseline" | event == "1 Year") %>%
+#   mutate(missed = ifelse(visit_status_aggr == "Missed (explained)" |
+#                 visit_status_aggr == "Missed (unexplained)", 1, 0)) %>%
+#   pivot_wider(names_from = event, values_from = c(missed, income_household, site, race_ethnicity, education)) %>%
+#   mutate(`missed_1 Year` = ifelse(is.na(`missed_1 Year`), 0, `missed_1 Year`))
+
+
+# retention %>% 
+#   group_by(event) %>% 
+#   summarise(n = n(), 
+#             n_missed = sum(missed_visit_1y), 
+#             perc_missed = round(n_missed/n, 2)) |>
+#   kable(align = "c", caption = "Number of participants and percentage of missed visits by event") |>
+#   kable_styling()
+# # About 5% of participants missed their 1 year visit
+
+```
+
+# Modeling
+
+## Initial model
+
+```{r}
+
+n_folds = 10 # the number of folds for cross validation
+var_imp_avg = tibble() # prepare the output dataframe / tibble
+iterations = 100 # number of bootstrap samples
+
+# prepare dataset in a glmnet format:
+outcome <- retention$missed %>% 
+  data.matrix() 
+
+predictors <- retention %>%
+  select(income_household, site, 
+         race_ethnicity, education) %>%
+  data.matrix()
+
+for (i in 1:iterations) {
+  
+  # predictive model:
+  cv_model = glmnet::cv.glmnet(predictors, outcome, # the formula
+                               alpha = 1, # for lasso
+                               type.measure = "mse", # your error measure, here mean squared error
+                               nfolds = n_folds, # the number of folds in cross validation
+                               family = "binomial",
+                               parallel = T,
+                               type.multinomial = "grouped",
+                               intercept = FALSE) # calculate an intercept y/n
+
+  # extract the coefficients
+  var_imp <- coef(cv_model, s = cv_model$lambda.1se) %>% 
+    as.matrix() %>% 
+    as.data.frame() %>% 
+    rownames_to_column("Factor") %>% 
+    rename("Importance" = "s1")
+  
+  # extract the RMSE and lambda bootstrapped measurements
+  RMSE <- cv_model$cvm[cv_model$lambda == cv_model$lambda.1se] %>% sqrt() %>% round(2)
+  lambda <- cv_model$lambda.1se %>% round(2)
+  
+  if(i == 1){
+    lambda_values <- lambda
+    RMSE_values <- RMSE
+    var_imp_avg <- var_imp
+  } else{
+    var_imp_avg <- left_join(var_imp_avg, var_imp, by = c("Factor"))
+    lambda_values <- lambda_values %>% append(lambda)
+    RMSE_values <- RMSE_values %>% append(RMSE)
+  }
+}
+
+upper = c()
+lower = c()
+
+for (row in seq_len(nrow(var_imp_avg))){
+  upper[row] = sort(var_imp_avg[row,])[round(iterations*0.975,0)] # 97.5th
+  lower[row] = sort(var_imp_avg[row,])[round(iterations*0.25,0)] # 25th
+}
+
+
+# get the first column as rownames
+var_imp_avg <- column_to_rownames(var_imp_avg, var = "Factor")
+# now create a mean per row:
+var_imp_avg <- rowMeans(var_imp_avg)
+# format as dataframe
+var_imp_avg <- as.data.frame(var_imp_avg)
+# get rownames back as column
+var_imp_avg <- rownames_to_column(var_imp_avg, var = "Factor")
+# rename the Importance column
+var_imp_avg <- var_imp_avg %>%
+  rename(Importance = var_imp_avg)
+
+# round the confidence intervals
+upper <- unlist(upper) %>% round(2)
+lower <- unlist(lower) %>% round(2)
+
+# create CI column
+var_imp_avg$"95% CI" <- paste("[", lower, ", ", upper, "]", sep = "")
+
+# filter out predictors with Variable importance greater than zero
+var_imp_avg <- var_imp_avg %>%  
+  filter(abs(Importance) > 0)
+
+var_imp_avg %>% 
+  #mutate(Importance = round(Importance, 2)) %>% 
+  kableExtra::kbl(booktabs = T,
+                  col.names = c("Factor", "mean coeff.", "95% CI"),
+                  escape = TRUE,
+                  format = "markdown")
+
+```
+
+
+
+|Factor           | mean coeff.|95% CI         |
+|:----------------|-----------:|:--------------|
+|income_household |      -0.013|[-0.01, 0]     |
+|race_ethnicity   |      -0.317|[-0.3, -0.36]  |
+|education        |      -0.128|[-0.13, -0.14] | 
+
+# Basic descriptive characteristics
+
+## Distribution of age by sex
+
+
+Couldn't find the variable with sex in this set
+
+```{r age-by-sex, echo = T}
+dataIndiv_ID_2023.03.08 %>%
+  ggplot(aes(as.numeric(interview_age), fill = kbisgm_assigned_sex_6yr)) +
+  geom_density(alpha = .3) +
+  labs(
+    title = "Age Male x Female", x = "Age",
+    y = "Density"
+  ) +
+  theme_luis()
+```
+
+
+
+```{r}
+```
+
+
+# System information
+
+```{r}
+project.info
+```
+
+```{r}
+sessionInfo()
+```
+
+# References
