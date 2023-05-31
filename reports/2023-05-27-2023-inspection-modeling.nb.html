@@ -2993,7 +2993,7 @@ div.tocify {
 <h1 class="title toc-ignore">Inspecting data and initial modeling attempts</h1>
 <h3 class="subtitle">ABCD retention WG</h3>
 <h4 class="author">Luis Castro-de-Araujo <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h4>
-<h4 class="date">31 maio, 2023</h4>
+<h4 class="date">26 maio, 2023</h4>
 
 </div>
 
@@ -3003,378 +3003,99 @@ div.tocify {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbInJldGVudGlvbiAgPC0gcmVhZC5jc3YoXCJ+L0Rvd25sb2Fkcy9kYXRhSW5kaXZfSURfMjAyMy0wMy0wOC5jc3ZcIikgJT4lXG4gIGZpbHRlcihldmVudCA9PSBcIkJhc2VsaW5lXCIgfCBldmVudCA9PSBcIjEgWWVhclwiKSAlPiVcbiAgc2VsZWN0KHBndWlkLCBldmVudCwgdmlzaXRfc3RhdHVzX2FnZ3IsIGluY29tZV9ob3VzZWhvbGQsIHNpdGUsIHJhY2VfZXRobmljaXR5LCBlZHVjYXRpb24pICU+JVxuICBtdXRhdGUobWlzc2VkID0gaWZlbHNlKHZpc2l0X3N0YXR1c19hZ2dyID09IFwiTWlzc2VkIChleHBsYWluZWQpXCIgfFxuICAgICAgICAgICAgICAgIHZpc2l0X3N0YXR1c19hZ2dyID09IFwiTWlzc2VkICh1bmV4cGxhaW5lZClcIiwgMSwgMCksXG4gIHNpdGUgPSBhcy5mYWN0b3Ioc2l0ZSkpIiwiIiwiIyBiZWxvdyBpcyBhIHZlcnNpb24gd2l0aCB3aWRlIGZvcm1hdCwgd2hpY2ggaXMgdGhlIGNvcnJlY3Qgd2F5LCBidXQgdGhlcmUgaXMgYW4gb2RkaXR5IGluIiwiIyB0aGUgZGF0YSB0aGF0IHRoZSB2YWx1ZXMgZm9yIHNvbWUgZGVtb2dyYXBoaWMgaW5mbyBvbmx5IGFwcGVhciBhdCB0aGUgZm9sbG93IHVwLCBub3QgYXQgdGhlIGJhc2VsaW5lIiwiIyBzbyBJIHN1cHBvc2UgdGhlIGRhdGEgd2FzIGpvaW5lZCBpbmNvcnJlY3RseS4iLCIiLCIjIHJldGVudGlvbl93aWRlIDwtIGRhdGFJbmRpdl9JRF8yMDIzLjAzLjA4ICU+JSIsIiMgICBzZWxlY3QocGd1aWQsIGV2ZW50LCB2aXNpdF9zdGF0dXNfYWdnciwgaW5jb21lX2hvdXNlaG9sZCwgc2l0ZSwgcmFjZV9ldGhuaWNpdHksIGVkdWNhdGlvbikgJT4lIiwiIyAgIGdyb3VwX2J5KHBndWlkKSAlPiUiLCIjICAgZmlsdGVyKGV2ZW50ID09IFwiQmFzZWxpbmVcIiB8IGV2ZW50ID09IFwiMSBZZWFyXCIpICU+JSIsIiMgICBtdXRhdGUobWlzc2VkID0gaWZlbHNlKHZpc2l0X3N0YXR1c19hZ2dyID09IFwiTWlzc2VkIChleHBsYWluZWQpXCIgfCIsIiMgICAgICAgICAgICAgICAgIHZpc2l0X3N0YXR1c19hZ2dyID09IFwiTWlzc2VkICh1bmV4cGxhaW5lZClcIiwgMSwgMCkpICU+JSIsIiMgICBwaXZvdF93aWRlcihuYW1lc19mcm9tID0gZXZlbnQsIHZhbHVlc19mcm9tID0gYyhtaXNzZWQsIGluY29tZV9ob3VzZWhvbGQsIHNpdGUsIHJhY2VfZXRobmljaXR5LCBlZHVjYXRpb24pKSAlPiUiLCIjICAgbXV0YXRlKGBtaXNzZWRfMSBZZWFyYCA9IGlmZWxzZShpcy5uYShgbWlzc2VkXzEgWWVhcmApLCAwLCBgbWlzc2VkXzEgWWVhcmApKSIsIiIsIiIsIiMgcmV0ZW50aW9uICU+JSAiLCIjICAgZ3JvdXBfYnkoZXZlbnQpICU+JSAiLCIjICAgc3VtbWFyaXNlKG4gPSBuKCksICIsIiMgICAgICAgICAgICAgbl9taXNzZWQgPSBzdW0obWlzc2VkX3Zpc2l0XzF5KSwgIiwiIyAgICAgICAgICAgICBwZXJjX21pc3NlZCA9IHJvdW5kKG5fbWlzc2VkL24sIDIpKSB8PiIsIiMgICBrYWJsZShhbGlnbiA9IFwiY1wiLCBjYXB0aW9uID0gXCJOdW1iZXIgb2YgcGFydGljaXBhbnRzIGFuZCBwZXJjZW50YWdlIG9mIG1pc3NlZCB2aXNpdHMgYnkgZXZlbnRcIikgfD4iLCIjICAga2FibGVfc3R5bGluZygpIiwiIyAjIEFib3V0IDUlIG9mIHBhcnRpY2lwYW50cyBtaXNzZWQgdGhlaXIgMSB5ZWFyIHZpc2l0Il19 -->
+<!-- rnb-source-begin eyJkYXRhIjpbInJldGVudGlvbiAgPC0gcmVhZC5jc3YoXCJ+L0Rvd25sb2Fkcy9kYXRhSW5kaXZfSURfMjAyMy0wMy0wOC5jc3ZcIikgJT4lXG4gIGZpbHRlcihldmVudCA9PSBcIkJhc2VsaW5lXCIgfCBldmVudCA9PSBcIjEgWWVhclwiKSAlPiVcbiAgc2VsZWN0KHBndWlkLCBldmVudCwgdmlzaXRfc3RhdHVzX2FnZ3IsIGluY29tZV9ob3VzZWhvbGQsIHNpdGUsIHJhY2VfZXRobmljaXR5LCBlZHVjYXRpb24pICU+JVxuICBtdXRhdGUobWlzc2VkID0gaWZlbHNlKHZpc2l0X3N0YXR1c19hZ2dyID09IFwiTWlzc2VkIChleHBsYWluZWQpXCIgfFxuICAgICAgICAgICAgICAgIHZpc2l0X3N0YXR1c19hZ2dyID09IFwiTWlzc2VkICh1bmV4cGxhaW5lZClcIiwgMSwgMCkpIiwiIiwiIyBiZWxvdyBpcyBhIHZlcnNpb24gd2l0aCB3aWRlIGZvcm1hdCwgd2hpY2ggaXMgdGhlIGNvcnJlY3Qgd2F5LCBidXQgdGhlcmUgaXMgYW4gb2RkaXR5IGluIiwiIyB0aGUgZGF0YSB0aGF0IHRoZSB2YWx1ZXMgZm9yIHNvbWUgZGVtb2dyYXBoaWMgaW5mbyBvbmx5IGFwcGVhciBhdCB0aGUgZm9sbG93IHVwLCBub3QgYXQgdGhlIGJhc2VsaW5lIiwiIyBzbyBJIHN1cHBvc2UgdGhlIGRhdGEgd2FzIGpvaW5lZCBpbmNvcnJlY3RseS4iLCIiLCIjIHJldGVudGlvbl93aWRlIDwtIGRhdGFJbmRpdl9JRF8yMDIzLjAzLjA4ICU+JSIsIiMgICBzZWxlY3QocGd1aWQsIGV2ZW50LCB2aXNpdF9zdGF0dXNfYWdnciwgaW5jb21lX2hvdXNlaG9sZCwgc2l0ZSwgcmFjZV9ldGhuaWNpdHksIGVkdWNhdGlvbikgJT4lIiwiIyAgIGdyb3VwX2J5KHBndWlkKSAlPiUiLCIjICAgZmlsdGVyKGV2ZW50ID09IFwiQmFzZWxpbmVcIiB8IGV2ZW50ID09IFwiMSBZZWFyXCIpICU+JSIsIiMgICBtdXRhdGUobWlzc2VkID0gaWZlbHNlKHZpc2l0X3N0YXR1c19hZ2dyID09IFwiTWlzc2VkIChleHBsYWluZWQpXCIgfCIsIiMgICAgICAgICAgICAgICAgIHZpc2l0X3N0YXR1c19hZ2dyID09IFwiTWlzc2VkICh1bmV4cGxhaW5lZClcIiwgMSwgMCkpICU+JSIsIiMgICBwaXZvdF93aWRlcihuYW1lc19mcm9tID0gZXZlbnQsIHZhbHVlc19mcm9tID0gYyhtaXNzZWQsIGluY29tZV9ob3VzZWhvbGQsIHNpdGUsIHJhY2VfZXRobmljaXR5LCBlZHVjYXRpb24pKSAlPiUiLCIjICAgbXV0YXRlKGBtaXNzZWRfMSBZZWFyYCA9IGlmZWxzZShpcy5uYShgbWlzc2VkXzEgWWVhcmApLCAwLCBgbWlzc2VkXzEgWWVhcmApKSIsIiIsIiIsIiMgcmV0ZW50aW9uICU+JSAiLCIjICAgZ3JvdXBfYnkoZXZlbnQpICU+JSAiLCIjICAgc3VtbWFyaXNlKG4gPSBuKCksICIsIiMgICAgICAgICAgICAgbl9taXNzZWQgPSBzdW0obWlzc2VkX3Zpc2l0XzF5KSwgIiwiIyAgICAgICAgICAgICBwZXJjX21pc3NlZCA9IHJvdW5kKG5fbWlzc2VkL24sIDIpKSB8PiIsIiMgICBrYWJsZShhbGlnbiA9IFwiY1wiLCBjYXB0aW9uID0gXCJOdW1iZXIgb2YgcGFydGljaXBhbnRzIGFuZCBwZXJjZW50YWdlIG9mIG1pc3NlZCB2aXNpdHMgYnkgZXZlbnRcIikgfD4iLCIjICAga2FibGVfc3R5bGluZygpIiwiIyAjIEFib3V0IDUlIG9mIHBhcnRpY2lwYW50cyBtaXNzZWQgdGhlaXIgMSB5ZWFyIHZpc2l0Il19 -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>retention  &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;~/Downloads/dataIndiv_ID_2023-03-08.csv&quot;</span>) <span class="op">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(event <span class="op">==</span><span class="st"> &quot;Baseline&quot;</span> <span class="op">|</span><span class="st"> </span>event <span class="op">==</span><span class="st"> &quot;1 Year&quot;</span>) <span class="op">%&gt;%</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(pguid, event, visit_status_aggr, income_household, site, race_ethnicity, education) <span class="op">%&gt;%</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">missed =</span> <span class="kw">ifelse</span>(visit_status_aggr <span class="op">==</span><span class="st"> &quot;Missed (explained)&quot;</span> <span class="op">|</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="st">                </span>visit_status_aggr <span class="op">==</span><span class="st"> &quot;Missed (unexplained)&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>  <span class="dt">site =</span> <span class="kw">as.factor</span>(site))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="co"># below is a version with wide format, which is the correct way, but there is an oddity in</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="co"># the data that the values for some demographic info only appear at the follow up, not at the baseline</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="co"># so I suppose the data was joined incorrectly.</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a><span class="co"># retention_wide &lt;- dataIndiv_ID_2023.03.08 %&gt;%</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="co">#   select(pguid, event, visit_status_aggr, income_household, site, race_ethnicity, education) %&gt;%</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a><span class="co">#   group_by(pguid) %&gt;%</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a><span class="co">#   filter(event == &quot;Baseline&quot; | event == &quot;1 Year&quot;) %&gt;%</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="co">#   mutate(missed = ifelse(visit_status_aggr == &quot;Missed (explained)&quot; |</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a><span class="co">#                 visit_status_aggr == &quot;Missed (unexplained)&quot;, 1, 0)) %&gt;%</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a><span class="co">#   pivot_wider(names_from = event, values_from = c(missed, income_household, site, race_ethnicity, education)) %&gt;%</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a><span class="co">#   mutate(`missed_1 Year` = ifelse(is.na(`missed_1 Year`), 0, `missed_1 Year`))</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="st">                </span>visit_status_aggr <span class="op">==</span><span class="st"> &quot;Missed (unexplained)&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="co"># below is a version with wide format, which is the correct way, but there is an oddity in</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="co"># the data that the values for some demographic info only appear at the follow up, not at the baseline</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="co"># so I suppose the data was joined incorrectly.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="co"># retention_wide &lt;- dataIndiv_ID_2023.03.08 %&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a><span class="co">#   select(pguid, event, visit_status_aggr, income_household, site, race_ethnicity, education) %&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="co">#   group_by(pguid) %&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a><span class="co">#   filter(event == &quot;Baseline&quot; | event == &quot;1 Year&quot;) %&gt;%</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a><span class="co">#   mutate(missed = ifelse(visit_status_aggr == &quot;Missed (explained)&quot; |</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="co">#                 visit_status_aggr == &quot;Missed (unexplained)&quot;, 1, 0)) %&gt;%</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a><span class="co">#   pivot_wider(names_from = event, values_from = c(missed, income_household, site, race_ethnicity, education)) %&gt;%</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a><span class="co">#   mutate(`missed_1 Year` = ifelse(is.na(`missed_1 Year`), 0, `missed_1 Year`))</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a><span class="co"># retention %&gt;% </span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a><span class="co">#   group_by(event) %&gt;% </span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a><span class="co">#   summarise(n = n(), </span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a><span class="co">#             n_missed = sum(missed_visit_1y), </span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a><span class="co">#             perc_missed = round(n_missed/n, 2)) |&gt;</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true"></a><span class="co">#   kable(align = &quot;c&quot;, caption = &quot;Number of participants and percentage of missed visits by event&quot;) |&gt;</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true"></a><span class="co">#   kable_styling()</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true"></a><span class="co"># # About 5% of participants missed their 1 year visit</span></span></code></pre></div>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a><span class="co"># retention %&gt;% </span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a><span class="co">#   group_by(event) %&gt;% </span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a><span class="co">#   summarise(n = n(), </span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a><span class="co">#             n_missed = sum(missed_visit_1y), </span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a><span class="co">#             perc_missed = round(n_missed/n, 2)) |&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a><span class="co">#   kable(align = &quot;c&quot;, caption = &quot;Number of participants and percentage of missed visits by event&quot;) |&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true"></a><span class="co">#   kable_styling()</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true"></a><span class="co"># # About 5% of participants missed their 1 year visit</span></span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="modeling" class="section level1">
 <h1>Modeling</h1>
-</div>
-<div id="leave-one-out-cross-validation-and-coeff" class="section level1">
-<h1>Leave-one-out cross validation and coeff</h1>
-<p>The typical subsetting between test and training return less stable coeffs. Hence, trying LOOCV, which returned more stable results.</p>
-<ul>
-<li>Next step will be to unpack the levels of these ordinal vars. Currently they seem to point to the wrong direction (negative effect on missing a visit).</li>
-</ul>
+<div id="initial-model" class="section level2">
+<h2>Initial model</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbIiMgU2V0IHRoZSBudW1iZXIgb2YgaXRlcmF0aW9ucyIsIml0ZXJhdGlvbnMgPC0gMjEgICMgQXNzdW1pbmcgdGhlcmUgYXJlIDIxIHVuaXF1ZSBzaXRlcyIsIiIsIiMgSW5pdGlhbGl6ZSBlbXB0eSB2ZWN0b3JzIGZvciBzdG9yaW5nIHJlc3VsdHMiLCJsYW1iZGFfdmFsdWVzIDwtIGMoKSIsIlJNU0VfdmFsdWVzIDwtIGMoKSIsInZhcl9pbXBfYXZnIDwtIE5VTEwiLCIiLCIjIEl0ZXJhdGUgb3ZlciB0aGUgc2l0ZXMiLCJmb3IgKGlzaXRlIGluIHVuaXF1ZShyZXRlbnRpb24kc2l0ZSkpIHtcbiAgIyBTcGxpdCByZXRlbnRpb24gaW50byB0cmFpbiBhbmQgdGVzdFxuICB0cmFpbiA8LSByZXRlbnRpb24gJT4lXG4gICAgZmlsdGVyKHNpdGUgIT0gaXNpdGUpICAjIExlYXZlIG91dCB0aGUgY3VycmVudCBzaXRlXG5cbiAgdGVzdCA8LSByZXRlbnRpb24gJT4lXG4gICAgZmlsdGVyKHNpdGUgPT0gaXNpdGUpICAjIFVzZSBvbmx5IHRoZSBjdXJyZW50IHNpdGVcblxuICAjIFByZXBhcmUgZGF0YXNldCBpbiBnbG1uZXQgZm9ybWF0IGZvciB0cmFpbiBhbmQgdGVzdCBzZXRzXG4gIG91dGNvbWVfdHJhaW4gPC0gZGF0YS5tYXRyaXgodHJhaW4kbWlzc2VkKVxuICBvdXRjb21lX3Rlc3QgPC0gZGF0YS5tYXRyaXgodGVzdCRtaXNzZWQpXG5cbiAgcHJlZGljdG9yc190cmFpbiA8LSB0cmFpbiAlPiVcbiAgICBzZWxlY3QoaW5jb21lX2hvdXNlaG9sZCwgIHJhY2VfZXRobmljaXR5LCBlZHVjYXRpb24pICU+JVxuICAgIGRhdGEubWF0cml4KClcblxuICBwcmVkaWN0b3JzX3Rlc3QgPC0gdGVzdCAlPiVcbiAgICBzZWxlY3QoaW5jb21lX2hvdXNlaG9sZCwgIHJhY2VfZXRobmljaXR5LCBlZHVjYXRpb24pICU+JVxuICAgIGRhdGEubWF0cml4KClcblxuICBtZXNzYWdlKFwiU2l0ZTogXCIsIGlzaXRlKVxuXG4gICMgUGVyZm9ybSBjcm9zcy12YWxpZGF0ZWQgZ2xtbmV0IG1vZGVsIGZpdHRpbmdcbiAgY3ZfbW9kZWwgPC0gY3YuZ2xtbmV0KHByZWRpY3RvcnNfdHJhaW4sIG91dGNvbWVfdHJhaW4sXG4gICAgICAgICAgICAgICAgICAgICAgICBuZm9sZHMgPSAxMCwgICMgVXNlIExPT0NWXG4gICAgICAgICAgICAgICAgZmFtaWx5ID0gXCJiaW5vbWlhbFwiLFxuICBwYXJhbGxlbCA9VClcblxuICAjIEdldCB0aGUgYmVzdCBsYW1iZGFcbiAgYmVzdF9sYW1iZGEgPC0gY3ZfbW9kZWwkbGFtYmRhLjFzZVxuXG4gICMgRml0IHRoZSBtb2RlbCB1c2luZyB0aGUgYmVzdCBsYW1iZGEgb24gdGhlIHRlc3Qgc2V0XG4gIGZpdCA8LSBnbG1uZXQocHJlZGljdG9yc190ZXN0LCBvdXRjb21lX3Rlc3QsXG4gICAgICAgICAgICAgICAgYWxwaGEgPSAxLFxuICAgICAgICAgICAgICAgIHR5cGUubWVhc3VyZSA9IFwibXNlXCIsXG4gICAgICAgICAgICAgICAgbGFtYmRhID0gYmVzdF9sYW1iZGEsXG4gICAgICAgICAgICAgICAgZmFtaWx5ID0gXCJiaW5vbWlhbFwiLFxuICAgICAgICAgICAgICAgIGludGVyY2VwdCA9IEZBTFNFKVxuXG4gICMgRXh0cmFjdCB0aGUgY29lZmZpY2llbnRzXG4gIHZhcl9pbXAgPC0gY29lZihmaXQsIHMgPSBmaXQkbGFtYmRhLjFzZSkgJT4lXG4gICAgYXMubWF0cml4KCkgJT4lXG4gICAgYXMuZGF0YS5mcmFtZSgpICU+JVxuICAgIHJvd25hbWVzX3RvX2NvbHVtbihcIkZhY3RvclwiKSAlPiVcbiAgICByZW5hbWUoXCJJbXBvcnRhbmNlXCIgPSBcInMwXCIpXG5cbiAgIyBTdG9yZSB0aGUgcmVzdWx0c1xuICBSTVNFIDwtIGN2X21vZGVsJGN2bVtjdl9tb2RlbCRsYW1iZGEgPT0gY3ZfbW9kZWwkbGFtYmRhLjFzZV0gJT4lIHNxcnQoKSAlPiUgcm91bmQoMilcbiAgbGFtYmRhIDwtIGN2X21vZGVsJGxhbWJkYS4xc2UgJT4lIHJvdW5kKDIpXG5cbiAgaWYgKGlzLm51bGwodmFyX2ltcF9hdmcpKSB7XG4gICAgdmFyX2ltcF9hdmcgPC0gdmFyX2ltcFxuICB9IGVsc2Uge1xuICAgIHZhcl9pbXBfYXZnIDwtIGxlZnRfam9pbih2YXJfaW1wX2F2ZywgdmFyX2ltcCwgYnkgPSBjKFwiRmFjdG9yXCIpKVxuICAgIGxhbWJkYV92YWx1ZXMgPC0gbGFtYmRhX3ZhbHVlcyAlPiUgYXBwZW5kKGxhbWJkYSlcbiAgICBSTVNFX3ZhbHVlcyA8LSBSTVNFX3ZhbHVlcyAlPiUgYXBwZW5kKFJNU0UpXG4gIH1cbn0iXX0= -->
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co"># Set the number of iterations</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>iterations &lt;-<span class="st"> </span><span class="dv">21</span>  <span class="co"># Assuming there are 21 unique sites</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="co"># Initialize empty vectors for storing results</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>lambda_values &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>RMSE_values &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<!-- rnb-source-begin eyJkYXRhIjpbIm5fZm9sZHMgPSAxMCAjIHRoZSBudW1iZXIgb2YgZm9sZHMgZm9yIGNyb3NzIHZhbGlkYXRpb24iLCJ2YXJfaW1wX2F2ZyA9IHRpYmJsZSgpICMgcHJlcGFyZSB0aGUgb3V0cHV0IGRhdGFmcmFtZSAvIHRpYmJsZSIsIml0ZXJhdGlvbnMgPSAxMDAgIyBudW1iZXIgb2YgYm9vdHN0cmFwIHNhbXBsZXMiLCIiLCIjIHByZXBhcmUgZGF0YXNldCBpbiBhIGdsbW5ldCBmb3JtYXQ6Iiwib3V0Y29tZSA8LSByZXRlbnRpb24kbWlzc2VkICU+JSBcbiAgZGF0YS5tYXRyaXgoKSAiLCIiLCJwcmVkaWN0b3JzIDwtIHJldGVudGlvbiAlPiVcbiAgc2VsZWN0KGluY29tZV9ob3VzZWhvbGQsIHNpdGUsIFxuICAgICAgICAgcmFjZV9ldGhuaWNpdHksIGVkdWNhdGlvbikgJT4lXG4gIGRhdGEubWF0cml4KCkiLCIiLCJmb3IgKGkgaW4gMTppdGVyYXRpb25zKSB7XG4gIFxuICAjIHByZWRpY3RpdmUgbW9kZWw6XG4gIGN2X21vZGVsID0gZ2xtbmV0Ojpjdi5nbG1uZXQocHJlZGljdG9ycywgb3V0Y29tZSwgIyB0aGUgZm9ybXVsYVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFscGhhID0gMSwgIyBmb3IgbGFzc29cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlLm1lYXN1cmUgPSBcIm1zZVwiLCAjIHlvdXIgZXJyb3IgbWVhc3VyZSwgaGVyZSBtZWFuIHNxdWFyZWQgZXJyb3JcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuZm9sZHMgPSBuX2ZvbGRzLCAjIHRoZSBudW1iZXIgb2YgZm9sZHMgaW4gY3Jvc3MgdmFsaWRhdGlvblxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZhbWlseSA9IFwiYmlub21pYWxcIixcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwYXJhbGxlbCA9IFQsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZS5tdWx0aW5vbWlhbCA9IFwiZ3JvdXBlZFwiLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGludGVyY2VwdCA9IEZBTFNFKSAjIGNhbGN1bGF0ZSBhbiBpbnRlcmNlcHQgeS9uXG5cbiAgIyBleHRyYWN0IHRoZSBjb2VmZmljaWVudHNcbiAgdmFyX2ltcCA8LSBjb2VmKGN2X21vZGVsLCBzID0gY3ZfbW9kZWwkbGFtYmRhLjFzZSkgJT4lIFxuICAgIGFzLm1hdHJpeCgpICU+JSBcbiAgICBhcy5kYXRhLmZyYW1lKCkgJT4lIFxuICAgIHJvd25hbWVzX3RvX2NvbHVtbihcIkZhY3RvclwiKSAlPiUgXG4gICAgcmVuYW1lKFwiSW1wb3J0YW5jZVwiID0gXCJzMVwiKVxuICBcbiAgIyBleHRyYWN0IHRoZSBSTVNFIGFuZCBsYW1iZGEgYm9vdHN0cmFwcGVkIG1lYXN1cmVtZW50c1xuICBSTVNFIDwtIGN2X21vZGVsJGN2bVtjdl9tb2RlbCRsYW1iZGEgPT0gY3ZfbW9kZWwkbGFtYmRhLjFzZV0gJT4lIHNxcnQoKSAlPiUgcm91bmQoMilcbiAgbGFtYmRhIDwtIGN2X21vZGVsJGxhbWJkYS4xc2UgJT4lIHJvdW5kKDIpXG4gIFxuICBpZihpID09IDEpe1xuICAgIGxhbWJkYV92YWx1ZXMgPC0gbGFtYmRhXG4gICAgUk1TRV92YWx1ZXMgPC0gUk1TRVxuICAgIHZhcl9pbXBfYXZnIDwtIHZhcl9pbXBcbiAgfSBlbHNle1xuICAgIHZhcl9pbXBfYXZnIDwtIGxlZnRfam9pbih2YXJfaW1wX2F2ZywgdmFyX2ltcCwgYnkgPSBjKFwiRmFjdG9yXCIpKVxuICAgIGxhbWJkYV92YWx1ZXMgPC0gbGFtYmRhX3ZhbHVlcyAlPiUgYXBwZW5kKGxhbWJkYSlcbiAgICBSTVNFX3ZhbHVlcyA8LSBSTVNFX3ZhbHVlcyAlPiUgYXBwZW5kKFJNU0UpXG4gIH1cbn0iLCIiLCJ1cHBlciA9IGMoKSIsImxvd2VyID0gYygpIiwiIiwiZm9yIChyb3cgaW4gc2VxX2xlbihucm93KHZhcl9pbXBfYXZnKSkpe1xuICB1cHBlcltyb3ddID0gc29ydCh2YXJfaW1wX2F2Z1tyb3csXSlbcm91bmQoaXRlcmF0aW9ucyowLjk3NSwwKV0gIyA5Ny41dGhcbiAgbG93ZXJbcm93XSA9IHNvcnQodmFyX2ltcF9hdmdbcm93LF0pW3JvdW5kKGl0ZXJhdGlvbnMqMC4yNSwwKV0gIyAyNXRoXG59Il19 -->
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>n_folds =<span class="st"> </span><span class="dv">10</span> <span class="co"># the number of folds for cross validation</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>var_imp_avg =<span class="st"> </span><span class="kw">tibble</span>() <span class="co"># prepare the output dataframe / tibble</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>iterations =<span class="st"> </span><span class="dv">100</span> <span class="co"># number of bootstrap samples</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="co"># prepare dataset in a glmnet format:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>outcome &lt;-<span class="st"> </span>retention<span class="op">$</span>missed <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">data.matrix</span>() </span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="co"># Iterate over the sites</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="cf">for</span> (isite <span class="cf">in</span> <span class="kw">unique</span>(retention<span class="op">$</span>site)) {</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>  <span class="co"># Split retention into train and test</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>  train &lt;-<span class="st"> </span>retention <span class="op">%&gt;%</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="st">    </span><span class="kw">filter</span>(site <span class="op">!=</span><span class="st"> </span>isite)  <span class="co"># Leave out the current site</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>  test &lt;-<span class="st"> </span>retention <span class="op">%&gt;%</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="st">    </span><span class="kw">filter</span>(site <span class="op">==</span><span class="st"> </span>isite)  <span class="co"># Use only the current site</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>  <span class="co"># Prepare dataset in glmnet format for train and test sets</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>  outcome_train &lt;-<span class="st"> </span><span class="kw">data.matrix</span>(train<span class="op">$</span>missed)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>  outcome_test &lt;-<span class="st"> </span><span class="kw">data.matrix</span>(test<span class="op">$</span>missed)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>  predictors_train &lt;-<span class="st"> </span>train <span class="op">%&gt;%</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a><span class="st">    </span><span class="kw">select</span>(income_household,  race_ethnicity, education) <span class="op">%&gt;%</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a><span class="st">    </span><span class="kw">data.matrix</span>()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>predictors &lt;-<span class="st"> </span>retention <span class="op">%&gt;%</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(income_household, site, </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>         race_ethnicity, education) <span class="op">%&gt;%</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">data.matrix</span>()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>iterations) {</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>  </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>  <span class="co"># predictive model:</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>  cv_model =<span class="st"> </span>glmnet<span class="op">::</span><span class="kw">cv.glmnet</span>(predictors, outcome, <span class="co"># the formula</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>                               <span class="dt">alpha =</span> <span class="dv">1</span>, <span class="co"># for lasso</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>                               <span class="dt">type.measure =</span> <span class="st">&quot;mse&quot;</span>, <span class="co"># your error measure, here mean squared error</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>                               <span class="dt">nfolds =</span> n_folds, <span class="co"># the number of folds in cross validation</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>                               <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>                               <span class="dt">parallel =</span> T,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>                               <span class="dt">type.multinomial =</span> <span class="st">&quot;grouped&quot;</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>                               <span class="dt">intercept =</span> <span class="ot">FALSE</span>) <span class="co"># calculate an intercept y/n</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>  predictors_test &lt;-<span class="st"> </span>test <span class="op">%&gt;%</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a><span class="st">    </span><span class="kw">select</span>(income_household,  race_ethnicity, education) <span class="op">%&gt;%</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a><span class="st">    </span><span class="kw">data.matrix</span>()</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a>  <span class="kw">message</span>(<span class="st">&quot;Site: &quot;</span>, isite)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a>  <span class="co"># Perform cross-validated glmnet model fitting</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a>  cv_model &lt;-<span class="st"> </span><span class="kw">cv.glmnet</span>(predictors_train, outcome_train,</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a>                        <span class="dt">nfolds =</span> <span class="dv">10</span>,  <span class="co"># Use LOOCV</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a>                <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a>  <span class="dt">parallel =</span>T)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true"></a>  <span class="co"># Get the best lambda</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true"></a>  best_lambda &lt;-<span class="st"> </span>cv_model<span class="op">$</span>lambda<span class="fl">.1</span>se</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true"></a>  <span class="co"># Fit the model using the best lambda on the test set</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true"></a>  fit &lt;-<span class="st"> </span><span class="kw">glmnet</span>(predictors_test, outcome_test,</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true"></a>                <span class="dt">alpha =</span> <span class="dv">1</span>,</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true"></a>                <span class="dt">type.measure =</span> <span class="st">&quot;mse&quot;</span>,</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true"></a>                <span class="dt">lambda =</span> best_lambda,</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true"></a>                <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>,</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true"></a>                <span class="dt">intercept =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true"></a>  <span class="co"># Extract the coefficients</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true"></a>  var_imp &lt;-<span class="st"> </span><span class="kw">coef</span>(fit, <span class="dt">s =</span> fit<span class="op">$</span>lambda<span class="fl">.1</span>se) <span class="op">%&gt;%</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true"></a><span class="st">    </span><span class="kw">as.matrix</span>() <span class="op">%&gt;%</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true"></a><span class="st">    </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true"></a><span class="st">    </span><span class="kw">rownames_to_column</span>(<span class="st">&quot;Factor&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true"></a><span class="st">    </span><span class="kw">rename</span>(<span class="st">&quot;Importance&quot;</span> =<span class="st"> &quot;s0&quot;</span>)</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true"></a></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true"></a>  <span class="co"># Store the results</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true"></a>  RMSE &lt;-<span class="st"> </span>cv_model<span class="op">$</span>cvm[cv_model<span class="op">$</span>lambda <span class="op">==</span><span class="st"> </span>cv_model<span class="op">$</span>lambda<span class="fl">.1</span>se] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sqrt</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true"></a>  lambda &lt;-<span class="st"> </span>cv_model<span class="op">$</span>lambda<span class="fl">.1</span>se <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true"></a></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true"></a>  <span class="cf">if</span> (<span class="kw">is.null</span>(var_imp_avg)) {</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true"></a>    var_imp_avg &lt;-<span class="st"> </span>var_imp</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true"></a>  } <span class="cf">else</span> {</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true"></a>    var_imp_avg &lt;-<span class="st"> </span><span class="kw">left_join</span>(var_imp_avg, var_imp, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Factor&quot;</span>))</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true"></a>    lambda_values &lt;-<span class="st"> </span>lambda_values <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">append</span>(lambda)</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true"></a>    RMSE_values &lt;-<span class="st"> </span>RMSE_values <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">append</span>(RMSE)</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true"></a>  }</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true"></a>}</span></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogT0hTVVxuIn0= -->
-<pre><code>Site: OHSU</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-warning-begin eyJkYXRhIjoiV2FybmluZyBpbiBsb2duZXQoeGQsIGlzLnNwYXJzZSwgaXgsIGp4LCB5LCB3ZWlnaHRzLCBvZmZzZXQsIGFscGhhLCBub2JzLCA6IG9uZSBtdWx0aW5vbWlhbCBvclxuYmlub21pYWwgY2xhc3MgaGFzIGZld2VyIHRoYW4gOCBvYnNlcnZhdGlvbnM7IGRhbmdlcm91cyBncm91bmRcbiJ9 -->
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one multinomial or
-binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<!-- rnb-warning-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVUNTRFxuIn0= -->
-<pre><code>Site: UCSD</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogWUFMRVxuIn0= -->
-<pre><code>Site: YALE</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogUk9DXG4ifQ== -->
-<pre><code>Site: ROC</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogV1VTVExcbiJ9 -->
-<pre><code>Site: WUSTL</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVU1CXG4ifQ== -->
-<pre><code>Site: UMB</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVVZNXG4ifQ== -->
-<pre><code>Site: UVM</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogRklVXG4ifQ== -->
-<pre><code>Site: FIU</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVUZMXG4ifQ== -->
-<pre><code>Site: UFL</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogTElCUlxuIn0= -->
-<pre><code>Site: LIBR</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVU1OXG4ifQ== -->
-<pre><code>Site: UMN</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVkNVXG4ifQ== -->
-<pre><code>Site: VCU</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVVRBSFxuIn0= -->
-<pre><code>Site: UTAH</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogQ1VCXG4ifQ== -->
-<pre><code>Site: CUB</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogTVVTQ1xuIn0= -->
-<pre><code>Site: MUSC</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogQ0hMQVxuIn0= -->
-<pre><code>Site: CHLA</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVU1JQ0hcbiJ9 -->
-<pre><code>Site: UMICH</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVUNMQVxuIn0= -->
-<pre><code>Site: UCLA</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogU1JJXG4ifQ== -->
-<pre><code>Site: SRI</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVVBNQ1xuIn0= -->
-<pre><code>Site: UPMC</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-message-begin eyJkYXRhIjoiU2l0ZTogVVdNXG4ifQ== -->
-<pre><code>Site: UWM</code></pre>
-<!-- rnb-message-end -->
-<!-- rnb-source-begin eyJkYXRhIjpbInVwcGVyID0gYygpIiwibG93ZXIgPSBjKCkiLCIiLCJmb3IgKHJvdyBpbiBzZXFfbGVuKG5yb3codmFyX2ltcF9hdmcpKSl7XG4gIHVwcGVyW3Jvd10gPSBzb3J0KHZhcl9pbXBfYXZnW3JvdyxdKVtyb3VuZChpdGVyYXRpb25zKjAuOTc1LDApXSAjIDk3LjV0aFxuICBsb3dlcltyb3ddID0gc29ydCh2YXJfaW1wX2F2Z1tyb3csXSlbcm91bmQoaXRlcmF0aW9ucyowLjI1LDApXSAjIDI1dGhcbn0iXX0= -->
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a>upper =<span class="st"> </span><span class="kw">c</span>()</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a>lower =<span class="st"> </span><span class="kw">c</span>()</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a><span class="cf">for</span> (row <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">nrow</span>(var_imp_avg))){</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a>  upper[row] =<span class="st"> </span><span class="kw">sort</span>(var_imp_avg[row,])[<span class="kw">round</span>(iterations<span class="op">*</span><span class="fl">0.975</span>,<span class="dv">0</span>)] <span class="co"># 97.5th</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a>  lower[row] =<span class="st"> </span><span class="kw">sort</span>(var_imp_avg[row,])[<span class="kw">round</span>(iterations<span class="op">*</span><span class="fl">0.25</span>,<span class="dv">0</span>)] <span class="co"># 25th</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a>}</span></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-warning-begin eyJkYXRhIjoiV2FybmluZyBpbiB4dGZybS5kYXRhLmZyYW1lKHgpOiBjYW5ub3QgeHRmcm0gZGF0YSBmcmFtZXNcbiJ9 -->
-<pre><code>Warning in xtfrm.data.frame(x): cannot xtfrm data frames</code></pre>
-<!-- rnb-warning-end -->
-<!-- rnb-warning-begin eyJkYXRhIjpbIldhcm5pbmcgaW4geHRmcm0uZGF0YS5mcmFtZSh4KTogY2Fubm90IHh0ZnJtIGRhdGEgZnJhbWVzXG4iLCJXYXJuaW5nIGluIHh0ZnJtLmRhdGEuZnJhbWUoeCk6IGNhbm5vdCB4dGZybSBkYXRhIGZyYW1lc1xuIiwiV2FybmluZyBpbiB4dGZybS5kYXRhLmZyYW1lKHgpOiBjYW5ub3QgeHRmcm0gZGF0YSBmcmFtZXNcbiIsIldhcm5pbmcgaW4geHRmcm0uZGF0YS5mcmFtZSh4KTogY2Fubm90IHh0ZnJtIGRhdGEgZnJhbWVzXG4iLCJXYXJuaW5nIGluIHh0ZnJtLmRhdGEuZnJhbWUoeCk6IGNhbm5vdCB4dGZybSBkYXRhIGZyYW1lc1xuIiwiV2FybmluZyBpbiB4dGZybS5kYXRhLmZyYW1lKHgpOiBjYW5ub3QgeHRmcm0gZGF0YSBmcmFtZXNcbiIsIldhcm5pbmcgaW4geHRmcm0uZGF0YS5mcmFtZSh4KTogY2Fubm90IHh0ZnJtIGRhdGEgZnJhbWVzXG4iXX0= -->
-<pre><code>Warning in xtfrm.data.frame(x): cannot xtfrm data frames
-
-Warning in xtfrm.data.frame(x): cannot xtfrm data frames
-
-Warning in xtfrm.data.frame(x): cannot xtfrm data frames
-
-Warning in xtfrm.data.frame(x): cannot xtfrm data frames
-
-Warning in xtfrm.data.frame(x): cannot xtfrm data frames
-
-Warning in xtfrm.data.frame(x): cannot xtfrm data frames
-
-Warning in xtfrm.data.frame(x): cannot xtfrm data frames</code></pre>
-<!-- rnb-warning-end -->
-<!-- rnb-source-begin eyJkYXRhIjpbIiMgZ2V0IHRoZSBmaXJzdCBjb2x1bW4gYXMgcm93bmFtZXMiLCJ2YXJfaW1wX2F2ZyA8LSBjb2x1bW5fdG9fcm93bmFtZXModmFyX2ltcF9hdmcsIHZhciA9IFwiRmFjdG9yXCIpIiwiIyBub3cgY3JlYXRlIGEgbWVhbiBwZXIgcm93OiIsInZhcl9pbXBfYXZnIDwtIHJvd01lYW5zKHZhcl9pbXBfYXZnKSIsIiMgZm9ybWF0IGFzIGRhdGFmcmFtZSIsInZhcl9pbXBfYXZnIDwtIGFzLmRhdGEuZnJhbWUodmFyX2ltcF9hdmcpIiwiIyBnZXQgcm93bmFtZXMgYmFjayBhcyBjb2x1bW4iLCJ2YXJfaW1wX2F2ZyA8LSByb3duYW1lc190b19jb2x1bW4odmFyX2ltcF9hdmcsIHZhciA9IFwiRmFjdG9yXCIpIiwiIyByZW5hbWUgdGhlIEltcG9ydGFuY2UgY29sdW1uIiwidmFyX2ltcF9hdmcgPC0gdmFyX2ltcF9hdmcgJT4lXG4gIHJlbmFtZShJbXBvcnRhbmNlID0gdmFyX2ltcF9hdmcpIiwiIiwiIyByb3VuZCB0aGUgY29uZmlkZW5jZSBpbnRlcnZhbHMiLCJ1cHBlciA8LSB1bmxpc3QodXBwZXIpICU+JSByb3VuZCgyKSIsImxvd2VyIDwtIHVubGlzdChsb3dlcikgJT4lIHJvdW5kKDIpIiwiIiwiIyBjcmVhdGUgQ0kgY29sdW1uIiwidmFyX2ltcF9hdmckXCI5NSUgQ0lcIiA8LSBwYXN0ZShcIltcIiwgbG93ZXIsIFwiLCBcIiwgdXBwZXIsIFwiXVwiLCBzZXAgPSBcIlwiKSIsIiIsIiMgZmlsdGVyIG91dCBwcmVkaWN0b3JzIHdpdGggVmFyaWFibGUgaW1wb3J0YW5jZSBncmVhdGVyIHRoYW4gemVybyIsInZhcl9pbXBfYXZnIDwtIHZhcl9pbXBfYXZnICU+JSAgXG4gIGZpbHRlcihhYnMoSW1wb3J0YW5jZSkgPiAwKSIsIiIsInZhcl9pbXBfYXZnICU+JSBcbiAgI211dGF0ZShJbXBvcnRhbmNlID0gcm91bmQoSW1wb3J0YW5jZSwgMikpICU+JSBcbiAga2FibGVFeHRyYTo6a2JsKGJvb2t0YWJzID0gVCxcbiAgICAgICAgICAgICAgICAgIGNvbC5uYW1lcyA9IGMoXCJGYWN0b3JcIiwgXCJtZWFuIGNvZWZmLlwiLCBcIjk1JSBDSVwiKSxcbiAgICAgICAgICAgICAgICAgIGVzY2FwZSA9IFRSVUUsXG4gICAgICAgICAgICAgICAgICBmb3JtYXQgPSBcIm1hcmtkb3duXCIpIl19 -->
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a><span class="co"># get the first column as rownames</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">column_to_rownames</span>(var_imp_avg, <span class="dt">var =</span> <span class="st">&quot;Factor&quot;</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a><span class="co"># now create a mean per row:</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">rowMeans</span>(var_imp_avg)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true"></a><span class="co"># format as dataframe</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(var_imp_avg)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true"></a><span class="co"># get rownames back as column</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">rownames_to_column</span>(var_imp_avg, <span class="dt">var =</span> <span class="st">&quot;Factor&quot;</span>)</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true"></a><span class="co"># rename the Importance column</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span>var_imp_avg <span class="op">%&gt;%</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Importance =</span> var_imp_avg)</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true"></a></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true"></a><span class="co"># round the confidence intervals</span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true"></a>upper &lt;-<span class="st"> </span><span class="kw">unlist</span>(upper) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true"></a>lower &lt;-<span class="st"> </span><span class="kw">unlist</span>(lower) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true"></a></span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true"></a><span class="co"># create CI column</span></span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true"></a>var_imp_avg<span class="op">$</span><span class="st">&quot;95% CI&quot;</span> &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;[&quot;</span>, lower, <span class="st">&quot;, &quot;</span>, upper, <span class="st">&quot;]&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true"></a></span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true"></a><span class="co"># filter out predictors with Variable importance greater than zero</span></span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span>var_imp_avg <span class="op">%&gt;%</span><span class="st">  </span></span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(<span class="kw">abs</span>(Importance) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true"></a></span>
-<span id="cb28-24"><a href="#cb28-24" aria-hidden="true"></a>var_imp_avg <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb28-25"><a href="#cb28-25" aria-hidden="true"></a><span class="st">  </span><span class="co">#mutate(Importance = round(Importance, 2)) %&gt;% </span></span>
-<span id="cb28-26"><a href="#cb28-26" aria-hidden="true"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kbl</span>(<span class="dt">booktabs =</span> T,</span>
-<span id="cb28-27"><a href="#cb28-27" aria-hidden="true"></a>                  <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Factor&quot;</span>, <span class="st">&quot;mean coeff.&quot;</span>, <span class="st">&quot;95% CI&quot;</span>),</span>
-<span id="cb28-28"><a href="#cb28-28" aria-hidden="true"></a>                  <span class="dt">escape =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb28-29"><a href="#cb28-29" aria-hidden="true"></a>                  <span class="dt">format =</span> <span class="st">&quot;markdown&quot;</span>)</span></code></pre></div>
-<!-- rnb-source-end -->
-<table>
-<thead>
-<tr class="header">
-<th align="left">Factor</th>
-<th align="right">mean coeff.</th>
-<th align="left">95% CI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">income_household</td>
-<td align="right">-0.082</td>
-<td align="left">[-0.05, 0]</td>
-</tr>
-<tr class="even">
-<td align="left">race_ethnicity</td>
-<td align="right">-0.574</td>
-<td align="left">[-0.4, -0.92]</td>
-</tr>
-<tr class="odd">
-<td align="left">education</td>
-<td align="right">-0.124</td>
-<td align="left">[-0.08, 0]</td>
-</tr>
-</tbody>
-</table>
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<table>
-<thead>
-<tr class="header">
-<th align="left">Factor</th>
-<th align="right">mean coeff.</th>
-<th align="left">95% CI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">income_household</td>
-<td align="right">-0.081</td>
-<td align="left">[-0.05, 0]</td>
-</tr>
-<tr class="even">
-<td align="left">race_ethnicity</td>
-<td align="right">-0.572</td>
-<td align="left">[-0.38, -0.92]</td>
-</tr>
-<tr class="odd">
-<td align="left">education</td>
-<td align="right">-0.123</td>
-<td align="left">[-0.09, 0]</td>
-</tr>
-</tbody>
-</table>
-<div id="glmnet-w-lasso" class="section level2">
-<h2>GLMnet w lasso</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbIm5fZm9sZHMgPSAxMCAjIHRoZSBudW1iZXIgb2YgZm9sZHMgZm9yIGNyb3NzIHZhbGlkYXRpb24iLCJ2YXJfaW1wX2F2ZyA9IHRpYmJsZSgpICMgcHJlcGFyZSB0aGUgb3V0cHV0IGRhdGFmcmFtZSAvIHRpYmJsZSIsIml0ZXJhdGlvbnMgPSAxMDAgIyBudW1iZXIgb2YgYm9vdHN0cmFwIHNhbXBsZXMiLCIiLCIiLCJmb3IgKGkgaW4gMTppdGVyYXRpb25zKSB7XG4gXG4gICMgc3BsaXQgcmV0ZW50aW9uIGludG8gdHJhaW4gYW5kIHRlc3RcbiAgdHJhaW4gPC0gcmV0ZW50aW9uICU+JSBcbiAgICBzbGljZV9zYW1wbGUocHJvcD0wLjgsIHJlcGxhY2UgPSBGKSAjIDIwJSBvZiB0aGUgZGF0YSBmb3IgdHJhaW5pbmdcbiAgdGVzdCA8LSByZXRlbnRpb24gJT4lIFxuICAgIGFudGlfam9pbih0cmFpbiwgYnkgPSBcInBndWlkXCIpICMgdGhlIHJlc3QgZm9yIHRlc3RpbmdcblxuICAjIHByZXBhcmUgZGF0YXNldCBpbiBnbG1uZXQgZm9ybWF0LCBhbmQgZm9yIGVhY2ggdHJhaW4gYW5kIHRlc3Qgc2V0c1xuICBvdXRjb21lX3RyYWluIDwtIHRyYWluJG1pc3NlZCAlPiUgXG4gICAgZGF0YS5tYXRyaXgoKVxuICBvdXRjb21lX3Rlc3QgPC0gdGVzdCRtaXNzZWQgJT4lXG4gICAgZGF0YS5tYXRyaXgoKVxuXG4gIHByZWRpY3RvcnNfdHJhaW4gPC0gdHJhaW4gJT4lXG4gICAgIHNlbGVjdChpbmNvbWVfaG91c2Vob2xkLCBzaXRlLCBcbiAgICAgICAgICAgcmFjZV9ldGhuaWNpdHksIGVkdWNhdGlvbikgJT4lXG4gICAgZGF0YS5tYXRyaXgoKVxuXG4gIHByZWRpY3RvcnNfdGVzdCA8LSB0ZXN0ICU+JVxuICAgICBzZWxlY3QoaW5jb21lX2hvdXNlaG9sZCwgc2l0ZSwgXG4gICAgICAgICAgIHJhY2VfZXRobmljaXR5LCBlZHVjYXRpb24pICU+JVxuICAgIGRhdGEubWF0cml4KClcblxuICBjdl9tb2RlbCA9IGN2LmdsbW5ldChwcmVkaWN0b3JzX3RyYWluLCBvdXRjb21lX3RyYWluLCAjIHRoZSBmb3JtdWxhXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmZvbGRzID0gbl9mb2xkcywgIyB0aGUgbnVtYmVyIG9mIGZvbGRzIGluIGNyb3NzIHZhbGlkYXRpb25cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmYW1pbHkgPSBcImJpbm9taWFsXCIsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGFyYWxsZWwgPSBUKSBcblxuICAjIGJlc3QgbGFtYmRhXG4gIGJlc3RfbGFtYmRhIDwtIGN2X21vZGVsJGxhbWJkYS4xc2VcblxuICBmaXQgPSBnbG1uZXQocHJlZGljdG9yc190ZXN0LCBvdXRjb21lX3Rlc3QsICMgdGhlIGZvcm11bGFcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhbHBoYSA9IDEsICMgZm9yIGxhc3NvXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZS5tZWFzdXJlID0gXCJtc2VcIiwgIyB5b3VyIGVycm9yIG1lYXN1cmUsIGhlcmUgbWVhbiBzcXVhcmVkIGVycm9yXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbGFtYmRhID0gYmVzdF9sYW1iZGEsICMgdGhlIGJlc3QgbGFtYmRhXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZmFtaWx5ID0gXCJiaW5vbWlhbFwiLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBhcmFsbGVsID0gVCxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjIHR5cGUubXVsdGlub21pYWwgPSBcImdyb3VwZWRcIixcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpbnRlcmNlcHQgPSBGQUxTRSkgIyBjYWxjdWxhdGUgYW4gaW50ZXJjZXB0IHkvblxuXG4gICMgZXh0cmFjdCB0aGUgY29lZmZpY2llbnRzXG4gIHZhcl9pbXAgPC0gY29lZihmaXQsIHMgPSBmaXQkbGFtYmRhLjFzZSkgJT4lIFxuICAgIGFzLm1hdHJpeCgpICU+JSBcbiAgICBhcy5kYXRhLmZyYW1lKCkgJT4lIFxuICAgIHJvd25hbWVzX3RvX2NvbHVtbihcIkZhY3RvclwiKSAlPiUgXG4gICAgcmVuYW1lKFwiSW1wb3J0YW5jZVwiID0gXCJzMFwiKVxuICBcbiAgIyBleHRyYWN0IHRoZSBSTVNFIGFuZCBsYW1iZGEgYm9vdHN0cmFwcGVkIG1lYXN1cmVtZW50c1xuICBSTVNFIDwtIGN2X21vZGVsJGN2bVtjdl9tb2RlbCRsYW1iZGEgPT0gY3ZfbW9kZWwkbGFtYmRhLjFzZV0gJT4lIHNxcnQoKSAlPiUgcm91bmQoMilcbiAgbGFtYmRhIDwtIGN2X21vZGVsJGxhbWJkYS4xc2UgJT4lIHJvdW5kKDIpXG4gIFxuICBpZihpID09IDEpe1xuICAgIGxhbWJkYV92YWx1ZXMgPC0gbGFtYmRhXG4gICAgUk1TRV92YWx1ZXMgPC0gUk1TRVxuICAgIHZhcl9pbXBfYXZnIDwtIHZhcl9pbXBcbiAgfSBlbHNle1xuICAgIHZhcl9pbXBfYXZnIDwtIGxlZnRfam9pbih2YXJfaW1wX2F2ZywgdmFyX2ltcCwgYnkgPSBjKFwiRmFjdG9yXCIpKVxuICAgIGxhbWJkYV92YWx1ZXMgPC0gbGFtYmRhX3ZhbHVlcyAlPiUgYXBwZW5kKGxhbWJkYSlcbiAgICBSTVNFX3ZhbHVlcyA8LSBSTVNFX3ZhbHVlcyAlPiUgYXBwZW5kKFJNU0UpXG4gIH1cbn0iLCIiLCJ1cHBlciA9IGMoKSIsImxvd2VyID0gYygpIiwiIiwiZm9yIChyb3cgaW4gc2VxX2xlbihucm93KHZhcl9pbXBfYXZnKSkpe1xuICB1cHBlcltyb3ddID0gc29ydCh2YXJfaW1wX2F2Z1tyb3csXSlbcm91bmQoaXRlcmF0aW9ucyowLjk3NSwwKV0gIyA5Ny41dGhcbiAgbG93ZXJbcm93XSA9IHNvcnQodmFyX2ltcF9hdmdbcm93LF0pW3JvdW5kKGl0ZXJhdGlvbnMqMC4yNSwwKV0gIyAyNXRoXG59Il19 -->
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a>n_folds =<span class="st"> </span><span class="dv">10</span> <span class="co"># the number of folds for cross validation</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a>var_imp_avg =<span class="st"> </span><span class="kw">tibble</span>() <span class="co"># prepare the output dataframe / tibble</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true"></a>iterations =<span class="st"> </span><span class="dv">100</span> <span class="co"># number of bootstrap samples</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>iterations) {</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true"></a> </span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true"></a>  <span class="co"># split retention into train and test</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true"></a>  train &lt;-<span class="st"> </span>retention <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true"></a><span class="st">    </span><span class="kw">slice_sample</span>(<span class="dt">prop=</span><span class="fl">0.8</span>, <span class="dt">replace =</span> F) <span class="co"># 20% of the data for training</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true"></a>  test &lt;-<span class="st"> </span>retention <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true"></a><span class="st">    </span><span class="kw">anti_join</span>(train, <span class="dt">by =</span> <span class="st">&quot;pguid&quot;</span>) <span class="co"># the rest for testing</span></span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true"></a></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true"></a>  <span class="co"># prepare dataset in glmnet format, and for each train and test sets</span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true"></a>  outcome_train &lt;-<span class="st"> </span>train<span class="op">$</span>missed <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true"></a><span class="st">    </span><span class="kw">data.matrix</span>()</span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true"></a>  outcome_test &lt;-<span class="st"> </span>test<span class="op">$</span>missed <span class="op">%&gt;%</span></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true"></a><span class="st">    </span><span class="kw">data.matrix</span>()</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true"></a></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true"></a>  predictors_train &lt;-<span class="st"> </span>train <span class="op">%&gt;%</span></span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true"></a><span class="st">     </span><span class="kw">select</span>(income_household, site, </span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true"></a>           race_ethnicity, education) <span class="op">%&gt;%</span></span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true"></a><span class="st">    </span><span class="kw">data.matrix</span>()</span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true"></a></span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true"></a>  predictors_test &lt;-<span class="st"> </span>test <span class="op">%&gt;%</span></span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true"></a><span class="st">     </span><span class="kw">select</span>(income_household, site, </span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true"></a>           race_ethnicity, education) <span class="op">%&gt;%</span></span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true"></a><span class="st">    </span><span class="kw">data.matrix</span>()</span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true"></a></span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true"></a>  cv_model =<span class="st"> </span><span class="kw">cv.glmnet</span>(predictors_train, outcome_train, <span class="co"># the formula</span></span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true"></a>                               <span class="dt">nfolds =</span> n_folds, <span class="co"># the number of folds in cross validation</span></span>
-<span id="cb29-32"><a href="#cb29-32" aria-hidden="true"></a>                               <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>,</span>
-<span id="cb29-33"><a href="#cb29-33" aria-hidden="true"></a>                               <span class="dt">parallel =</span> T) </span>
-<span id="cb29-34"><a href="#cb29-34" aria-hidden="true"></a></span>
-<span id="cb29-35"><a href="#cb29-35" aria-hidden="true"></a>  <span class="co"># best lambda</span></span>
-<span id="cb29-36"><a href="#cb29-36" aria-hidden="true"></a>  best_lambda &lt;-<span class="st"> </span>cv_model<span class="op">$</span>lambda<span class="fl">.1</span>se</span>
-<span id="cb29-37"><a href="#cb29-37" aria-hidden="true"></a></span>
-<span id="cb29-38"><a href="#cb29-38" aria-hidden="true"></a>  fit =<span class="st"> </span><span class="kw">glmnet</span>(predictors_test, outcome_test, <span class="co"># the formula</span></span>
-<span id="cb29-39"><a href="#cb29-39" aria-hidden="true"></a>                               <span class="dt">alpha =</span> <span class="dv">1</span>, <span class="co"># for lasso</span></span>
-<span id="cb29-40"><a href="#cb29-40" aria-hidden="true"></a>                               <span class="dt">type.measure =</span> <span class="st">&quot;mse&quot;</span>, <span class="co"># your error measure, here mean squared error</span></span>
-<span id="cb29-41"><a href="#cb29-41" aria-hidden="true"></a>                               <span class="dt">lambda =</span> best_lambda, <span class="co"># the best lambda</span></span>
-<span id="cb29-42"><a href="#cb29-42" aria-hidden="true"></a>                               <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>,</span>
-<span id="cb29-43"><a href="#cb29-43" aria-hidden="true"></a>                               <span class="dt">parallel =</span> T,</span>
-<span id="cb29-44"><a href="#cb29-44" aria-hidden="true"></a>                               <span class="co"># type.multinomial = &quot;grouped&quot;,</span></span>
-<span id="cb29-45"><a href="#cb29-45" aria-hidden="true"></a>                               <span class="dt">intercept =</span> <span class="ot">FALSE</span>) <span class="co"># calculate an intercept y/n</span></span>
-<span id="cb29-46"><a href="#cb29-46" aria-hidden="true"></a></span>
-<span id="cb29-47"><a href="#cb29-47" aria-hidden="true"></a>  <span class="co"># extract the coefficients</span></span>
-<span id="cb29-48"><a href="#cb29-48" aria-hidden="true"></a>  var_imp &lt;-<span class="st"> </span><span class="kw">coef</span>(fit, <span class="dt">s =</span> fit<span class="op">$</span>lambda<span class="fl">.1</span>se) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb29-49"><a href="#cb29-49" aria-hidden="true"></a><span class="st">    </span><span class="kw">as.matrix</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb29-50"><a href="#cb29-50" aria-hidden="true"></a><span class="st">    </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb29-51"><a href="#cb29-51" aria-hidden="true"></a><span class="st">    </span><span class="kw">rownames_to_column</span>(<span class="st">&quot;Factor&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb29-52"><a href="#cb29-52" aria-hidden="true"></a><span class="st">    </span><span class="kw">rename</span>(<span class="st">&quot;Importance&quot;</span> =<span class="st"> &quot;s0&quot;</span>)</span>
-<span id="cb29-53"><a href="#cb29-53" aria-hidden="true"></a>  </span>
-<span id="cb29-54"><a href="#cb29-54" aria-hidden="true"></a>  <span class="co"># extract the RMSE and lambda bootstrapped measurements</span></span>
-<span id="cb29-55"><a href="#cb29-55" aria-hidden="true"></a>  RMSE &lt;-<span class="st"> </span>cv_model<span class="op">$</span>cvm[cv_model<span class="op">$</span>lambda <span class="op">==</span><span class="st"> </span>cv_model<span class="op">$</span>lambda<span class="fl">.1</span>se] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sqrt</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
-<span id="cb29-56"><a href="#cb29-56" aria-hidden="true"></a>  lambda &lt;-<span class="st"> </span>cv_model<span class="op">$</span>lambda<span class="fl">.1</span>se <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
-<span id="cb29-57"><a href="#cb29-57" aria-hidden="true"></a>  </span>
-<span id="cb29-58"><a href="#cb29-58" aria-hidden="true"></a>  <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){</span>
-<span id="cb29-59"><a href="#cb29-59" aria-hidden="true"></a>    lambda_values &lt;-<span class="st"> </span>lambda</span>
-<span id="cb29-60"><a href="#cb29-60" aria-hidden="true"></a>    RMSE_values &lt;-<span class="st"> </span>RMSE</span>
-<span id="cb29-61"><a href="#cb29-61" aria-hidden="true"></a>    var_imp_avg &lt;-<span class="st"> </span>var_imp</span>
-<span id="cb29-62"><a href="#cb29-62" aria-hidden="true"></a>  } <span class="cf">else</span>{</span>
-<span id="cb29-63"><a href="#cb29-63" aria-hidden="true"></a>    var_imp_avg &lt;-<span class="st"> </span><span class="kw">left_join</span>(var_imp_avg, var_imp, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Factor&quot;</span>))</span>
-<span id="cb29-64"><a href="#cb29-64" aria-hidden="true"></a>    lambda_values &lt;-<span class="st"> </span>lambda_values <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">append</span>(lambda)</span>
-<span id="cb29-65"><a href="#cb29-65" aria-hidden="true"></a>    RMSE_values &lt;-<span class="st"> </span>RMSE_values <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">append</span>(RMSE)</span>
-<span id="cb29-66"><a href="#cb29-66" aria-hidden="true"></a>  }</span>
-<span id="cb29-67"><a href="#cb29-67" aria-hidden="true"></a>}</span>
-<span id="cb29-68"><a href="#cb29-68" aria-hidden="true"></a></span>
-<span id="cb29-69"><a href="#cb29-69" aria-hidden="true"></a>upper =<span class="st"> </span><span class="kw">c</span>()</span>
-<span id="cb29-70"><a href="#cb29-70" aria-hidden="true"></a>lower =<span class="st"> </span><span class="kw">c</span>()</span>
-<span id="cb29-71"><a href="#cb29-71" aria-hidden="true"></a></span>
-<span id="cb29-72"><a href="#cb29-72" aria-hidden="true"></a><span class="cf">for</span> (row <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">nrow</span>(var_imp_avg))){</span>
-<span id="cb29-73"><a href="#cb29-73" aria-hidden="true"></a>  upper[row] =<span class="st"> </span><span class="kw">sort</span>(var_imp_avg[row,])[<span class="kw">round</span>(iterations<span class="op">*</span><span class="fl">0.975</span>,<span class="dv">0</span>)] <span class="co"># 97.5th</span></span>
-<span id="cb29-74"><a href="#cb29-74" aria-hidden="true"></a>  lower[row] =<span class="st"> </span><span class="kw">sort</span>(var_imp_avg[row,])[<span class="kw">round</span>(iterations<span class="op">*</span><span class="fl">0.25</span>,<span class="dv">0</span>)] <span class="co"># 25th</span></span>
-<span id="cb29-75"><a href="#cb29-75" aria-hidden="true"></a>}</span></code></pre></div>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>  <span class="co"># extract the coefficients</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a>  var_imp &lt;-<span class="st"> </span><span class="kw">coef</span>(cv_model, <span class="dt">s =</span> cv_model<span class="op">$</span>lambda<span class="fl">.1</span>se) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a><span class="st">    </span><span class="kw">as.matrix</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a><span class="st">    </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a><span class="st">    </span><span class="kw">rownames_to_column</span>(<span class="st">&quot;Factor&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a><span class="st">    </span><span class="kw">rename</span>(<span class="st">&quot;Importance&quot;</span> =<span class="st"> &quot;s1&quot;</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a>  </span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a>  <span class="co"># extract the RMSE and lambda bootstrapped measurements</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a>  RMSE &lt;-<span class="st"> </span>cv_model<span class="op">$</span>cvm[cv_model<span class="op">$</span>lambda <span class="op">==</span><span class="st"> </span>cv_model<span class="op">$</span>lambda<span class="fl">.1</span>se] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sqrt</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a>  lambda &lt;-<span class="st"> </span>cv_model<span class="op">$</span>lambda<span class="fl">.1</span>se <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a>  </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a>  <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true"></a>    lambda_values &lt;-<span class="st"> </span>lambda</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true"></a>    RMSE_values &lt;-<span class="st"> </span>RMSE</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true"></a>    var_imp_avg &lt;-<span class="st"> </span>var_imp</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true"></a>  } <span class="cf">else</span>{</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true"></a>    var_imp_avg &lt;-<span class="st"> </span><span class="kw">left_join</span>(var_imp_avg, var_imp, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Factor&quot;</span>))</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true"></a>    lambda_values &lt;-<span class="st"> </span>lambda_values <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">append</span>(lambda)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true"></a>    RMSE_values &lt;-<span class="st"> </span>RMSE_values <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">append</span>(RMSE)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true"></a>  }</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true"></a>}</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true"></a>upper =<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true"></a>lower =<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true"></a><span class="cf">for</span> (row <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">nrow</span>(var_imp_avg))){</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true"></a>  upper[row] =<span class="st"> </span><span class="kw">sort</span>(var_imp_avg[row,])[<span class="kw">round</span>(iterations<span class="op">*</span><span class="fl">0.975</span>,<span class="dv">0</span>)] <span class="co"># 97.5th</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true"></a>  lower[row] =<span class="st"> </span><span class="kw">sort</span>(var_imp_avg[row,])[<span class="kw">round</span>(iterations<span class="op">*</span><span class="fl">0.25</span>,<span class="dv">0</span>)] <span class="co"># 25th</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true"></a>}</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-warning-begin eyJkYXRhIjpbIldhcm5pbmcgaW4geHRmcm0uZGF0YS5mcmFtZSh4KTogY2Fubm90IHh0ZnJtIGRhdGEgZnJhbWVzXG4iLCJXYXJuaW5nIGluIHh0ZnJtLmRhdGEuZnJhbWUoeCk6IGNhbm5vdCB4dGZybSBkYXRhIGZyYW1lc1xuIiwiV2FybmluZyBpbiB4dGZybS5kYXRhLmZyYW1lKHgpOiBjYW5ub3QgeHRmcm0gZGF0YSBmcmFtZXNcbiIsIldhcm5pbmcgaW4geHRmcm0uZGF0YS5mcmFtZSh4KTogY2Fubm90IHh0ZnJtIGRhdGEgZnJhbWVzXG4iLCJXYXJuaW5nIGluIHh0ZnJtLmRhdGEuZnJhbWUoeCk6IGNhbm5vdCB4dGZybSBkYXRhIGZyYW1lc1xuIiwiV2FybmluZyBpbiB4dGZybS5kYXRhLmZyYW1lKHgpOiBjYW5ub3QgeHRmcm0gZGF0YSBmcmFtZXNcbiIsIldhcm5pbmcgaW4geHRmcm0uZGF0YS5mcmFtZSh4KTogY2Fubm90IHh0ZnJtIGRhdGEgZnJhbWVzXG4iLCJXYXJuaW5nIGluIHh0ZnJtLmRhdGEuZnJhbWUoeCk6IGNhbm5vdCB4dGZybSBkYXRhIGZyYW1lc1xuIiwiV2FybmluZyBpbiB4dGZybS5kYXRhLmZyYW1lKHgpOiBjYW5ub3QgeHRmcm0gZGF0YSBmcmFtZXNcbiIsIldhcm5pbmcgaW4geHRmcm0uZGF0YS5mcmFtZSh4KTogY2Fubm90IHh0ZnJtIGRhdGEgZnJhbWVzXG4iXX0= -->
 <pre><code>Warning in xtfrm.data.frame(x): cannot xtfrm data frames
@@ -3398,35 +3119,35 @@ Warning in xtfrm.data.frame(x): cannot xtfrm data frames
 Warning in xtfrm.data.frame(x): cannot xtfrm data frames</code></pre>
 <!-- rnb-warning-end -->
 <!-- rnb-source-begin eyJkYXRhIjpbIiMgZ2V0IHRoZSBmaXJzdCBjb2x1bW4gYXMgcm93bmFtZXMiLCJ2YXJfaW1wX2F2ZyA8LSBjb2x1bW5fdG9fcm93bmFtZXModmFyX2ltcF9hdmcsIHZhciA9IFwiRmFjdG9yXCIpIiwiIyBub3cgY3JlYXRlIGEgbWVhbiBwZXIgcm93OiIsInZhcl9pbXBfYXZnIDwtIHJvd01lYW5zKHZhcl9pbXBfYXZnKSIsIiMgZm9ybWF0IGFzIGRhdGFmcmFtZSIsInZhcl9pbXBfYXZnIDwtIGFzLmRhdGEuZnJhbWUodmFyX2ltcF9hdmcpIiwiIyBnZXQgcm93bmFtZXMgYmFjayBhcyBjb2x1bW4iLCJ2YXJfaW1wX2F2ZyA8LSByb3duYW1lc190b19jb2x1bW4odmFyX2ltcF9hdmcsIHZhciA9IFwiRmFjdG9yXCIpIiwiIyByZW5hbWUgdGhlIEltcG9ydGFuY2UgY29sdW1uIiwidmFyX2ltcF9hdmcgPC0gdmFyX2ltcF9hdmcgJT4lXG4gIHJlbmFtZShJbXBvcnRhbmNlID0gdmFyX2ltcF9hdmcpIiwiIiwiIyByb3VuZCB0aGUgY29uZmlkZW5jZSBpbnRlcnZhbHMiLCJ1cHBlciA8LSB1bmxpc3QodXBwZXIpICU+JSByb3VuZCgyKSIsImxvd2VyIDwtIHVubGlzdChsb3dlcikgJT4lIHJvdW5kKDIpIiwiIiwiIyBjcmVhdGUgQ0kgY29sdW1uIiwidmFyX2ltcF9hdmckXCI5NSUgQ0lcIiA8LSBwYXN0ZShcIltcIiwgbG93ZXIsIFwiLCBcIiwgdXBwZXIsIFwiXVwiLCBzZXAgPSBcIlwiKSIsIiIsIiMgZmlsdGVyIG91dCBwcmVkaWN0b3JzIHdpdGggVmFyaWFibGUgaW1wb3J0YW5jZSBncmVhdGVyIHRoYW4gemVybyIsInZhcl9pbXBfYXZnIDwtIHZhcl9pbXBfYXZnICU+JSAgXG4gIGZpbHRlcihhYnMoSW1wb3J0YW5jZSkgPiAwKSIsIiIsInZhcl9pbXBfYXZnICU+JSBcbiAgI211dGF0ZShJbXBvcnRhbmNlID0gcm91bmQoSW1wb3J0YW5jZSwgMikpICU+JSBcbiAga2FibGVFeHRyYTo6a2JsKGJvb2t0YWJzID0gVCxcbiAgICAgICAgICAgICAgICAgIGNvbC5uYW1lcyA9IGMoXCJGYWN0b3JcIiwgXCJtZWFuIGNvZWZmLlwiLCBcIjk1JSBDSVwiKSxcbiAgICAgICAgICAgICAgICAgIGVzY2FwZSA9IFRSVUUsXG4gICAgICAgICAgICAgICAgICBmb3JtYXQgPSBcIm1hcmtkb3duXCIpIl19 -->
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a><span class="co"># get the first column as rownames</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">column_to_rownames</span>(var_imp_avg, <span class="dt">var =</span> <span class="st">&quot;Factor&quot;</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a><span class="co"># now create a mean per row:</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">rowMeans</span>(var_imp_avg)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true"></a><span class="co"># format as dataframe</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(var_imp_avg)</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true"></a><span class="co"># get rownames back as column</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">rownames_to_column</span>(var_imp_avg, <span class="dt">var =</span> <span class="st">&quot;Factor&quot;</span>)</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true"></a><span class="co"># rename the Importance column</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span>var_imp_avg <span class="op">%&gt;%</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Importance =</span> var_imp_avg)</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true"></a></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true"></a><span class="co"># round the confidence intervals</span></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true"></a>upper &lt;-<span class="st"> </span><span class="kw">unlist</span>(upper) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true"></a>lower &lt;-<span class="st"> </span><span class="kw">unlist</span>(lower) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true"></a></span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true"></a><span class="co"># create CI column</span></span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true"></a>var_imp_avg<span class="op">$</span><span class="st">&quot;95% CI&quot;</span> &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;[&quot;</span>, lower, <span class="st">&quot;, &quot;</span>, upper, <span class="st">&quot;]&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true"></a></span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true"></a><span class="co"># filter out predictors with Variable importance greater than zero</span></span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span>var_imp_avg <span class="op">%&gt;%</span><span class="st">  </span></span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(<span class="kw">abs</span>(Importance) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true"></a></span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true"></a>var_imp_avg <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb31-25"><a href="#cb31-25" aria-hidden="true"></a><span class="st">  </span><span class="co">#mutate(Importance = round(Importance, 2)) %&gt;% </span></span>
-<span id="cb31-26"><a href="#cb31-26" aria-hidden="true"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kbl</span>(<span class="dt">booktabs =</span> T,</span>
-<span id="cb31-27"><a href="#cb31-27" aria-hidden="true"></a>                  <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Factor&quot;</span>, <span class="st">&quot;mean coeff.&quot;</span>, <span class="st">&quot;95% CI&quot;</span>),</span>
-<span id="cb31-28"><a href="#cb31-28" aria-hidden="true"></a>                  <span class="dt">escape =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb31-29"><a href="#cb31-29" aria-hidden="true"></a>                  <span class="dt">format =</span> <span class="st">&quot;markdown&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co"># get the first column as rownames</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">column_to_rownames</span>(var_imp_avg, <span class="dt">var =</span> <span class="st">&quot;Factor&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="co"># now create a mean per row:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">rowMeans</span>(var_imp_avg)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="co"># format as dataframe</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(var_imp_avg)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="co"># get rownames back as column</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span><span class="kw">rownames_to_column</span>(var_imp_avg, <span class="dt">var =</span> <span class="st">&quot;Factor&quot;</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a><span class="co"># rename the Importance column</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span>var_imp_avg <span class="op">%&gt;%</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Importance =</span> var_imp_avg)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a><span class="co"># round the confidence intervals</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>upper &lt;-<span class="st"> </span><span class="kw">unlist</span>(upper) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>lower &lt;-<span class="st"> </span><span class="kw">unlist</span>(lower) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a><span class="co"># create CI column</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>var_imp_avg<span class="op">$</span><span class="st">&quot;95% CI&quot;</span> &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;[&quot;</span>, lower, <span class="st">&quot;, &quot;</span>, upper, <span class="st">&quot;]&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a><span class="co"># filter out predictors with Variable importance greater than zero</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a>var_imp_avg &lt;-<span class="st"> </span>var_imp_avg <span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(<span class="kw">abs</span>(Importance) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true"></a>var_imp_avg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true"></a><span class="st">  </span><span class="co">#mutate(Importance = round(Importance, 2)) %&gt;% </span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kbl</span>(<span class="dt">booktabs =</span> T,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true"></a>                  <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Factor&quot;</span>, <span class="st">&quot;mean coeff.&quot;</span>, <span class="st">&quot;95% CI&quot;</span>),</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true"></a>                  <span class="dt">escape =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true"></a>                  <span class="dt">format =</span> <span class="st">&quot;markdown&quot;</span>)</span></code></pre></div>
 <!-- rnb-source-end -->
 <table>
 <thead>
@@ -3439,214 +3160,23 @@ Warning in xtfrm.data.frame(x): cannot xtfrm data frames</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">income_household</td>
-<td align="right">-0.078</td>
-<td align="left">[-0.06, 0]</td>
+<td align="right">-0.013</td>
+<td align="left">[-0.01, 0]</td>
 </tr>
 <tr class="even">
-<td align="left">site</td>
-<td align="right">-0.010</td>
-<td align="left">[-0.02, 0]</td>
+<td align="left">race_ethnicity</td>
+<td align="right">-0.316</td>
+<td align="left">[-0.3, -0.36]</td>
 </tr>
 <tr class="odd">
-<td align="left">race_ethnicity</td>
-<td align="right">-0.488</td>
-<td align="left">[-0.39, -0.76]</td>
-</tr>
-<tr class="even">
 <td align="left">education</td>
-<td align="right">-0.115</td>
-<td align="left">[-0.09, -0.19]</td>
+<td align="right">-0.128</td>
+<td align="left">[-0.12, -0.14]</td>
 </tr>
 </tbody>
 </table>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<table>
-<thead>
-<tr class="header">
-<th align="left">Factor</th>
-<th align="right">mean coeff.</th>
-<th align="left">95% CI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">income_household</td>
-<td align="right">-0.075</td>
-<td align="left">[-0.05, 0]</td>
-</tr>
-<tr class="even">
-<td align="left">site</td>
-<td align="right">-0.010</td>
-<td align="left">[-0.02, 0]</td>
-</tr>
-<tr class="odd">
-<td align="left">race_ethnicity</td>
-<td align="right">-0.482</td>
-<td align="left">[-0.39, -0.75]</td>
-</tr>
-<tr class="even">
-<td align="left">education</td>
-<td align="right">-0.118</td>
-<td align="left">[-0.09, -0.2]</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Factor</th>
-<th align="right">mean coeff.</th>
-<th align="left">95% CI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">income_household</td>
-<td align="right">-0.084</td>
-<td align="left">[-0.05, 0]</td>
-</tr>
-<tr class="even">
-<td align="left">site</td>
-<td align="right">-0.009</td>
-<td align="left">[-0.02, 0]</td>
-</tr>
-<tr class="odd">
-<td align="left">race_ethnicity</td>
-<td align="right">-0.480</td>
-<td align="left">[-0.39, -0.74]</td>
-</tr>
-<tr class="even">
-<td align="left">education</td>
-<td align="right">-0.119</td>
-<td align="left">[-0.09, -0.19]</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Factor</th>
-<th align="right">mean coeff.</th>
-<th align="left">95% CI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">income_household</td>
-<td align="right">-0.069</td>
-<td align="left">[-0.05, -0.15]</td>
-</tr>
-<tr class="even">
-<td align="left">site</td>
-<td align="right">-0.004</td>
-<td align="left">[-0.01, 0]</td>
-</tr>
-<tr class="odd">
-<td align="left">race_ethnicity</td>
-<td align="right">-0.400</td>
-<td align="left">[-0.36, -0.54]</td>
-</tr>
-<tr class="even">
-<td align="left">education</td>
-<td align="right">-0.119</td>
-<td align="left">[-0.11, -0.14]</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Factor</th>
-<th align="right">mean coeff.</th>
-<th align="left">95% CI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">income_household</td>
-<td align="right">-0.065</td>
-<td align="left">[-0.05, -0.1]</td>
-</tr>
-<tr class="even">
-<td align="left">site</td>
-<td align="right">-0.001</td>
-<td align="left">[-0.01, 0]</td>
-</tr>
-<tr class="odd">
-<td align="left">race_ethnicity</td>
-<td align="right">-0.386</td>
-<td align="left">[-0.37, -0.43]</td>
-</tr>
-<tr class="even">
-<td align="left">education</td>
-<td align="right">-0.112</td>
-<td align="left">[-0.11, -0.13]</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Factor</th>
-<th align="right">mean coeff.</th>
-<th align="left">95% CI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">income_household</td>
-<td align="right">-0.060</td>
-<td align="left">[-0.05, -0.09]</td>
-</tr>
-<tr class="even">
-<td align="left">site</td>
-<td align="right">-0.001</td>
-<td align="left">[0, 0]</td>
-</tr>
-<tr class="odd">
-<td align="left">race_ethnicity</td>
-<td align="right">-0.384</td>
-<td align="left">[-0.37, -0.43]</td>
-</tr>
-<tr class="even">
-<td align="left">education</td>
-<td align="right">-0.112</td>
-<td align="left">[-0.11, -0.12]</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Factor</th>
-<th align="right">mean coeff.</th>
-<th align="left">95% CI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">income_household</td>
-<td align="right">-0.064</td>
-<td align="left">[-0.05, -0.09]</td>
-</tr>
-<tr class="even">
-<td align="left">site</td>
-<td align="right">-0.001</td>
-<td align="left">[0, 0]</td>
-</tr>
-<tr class="odd">
-<td align="left">race_ethnicity</td>
-<td align="right">-0.386</td>
-<td align="left">[-0.37, -0.42]</td>
-</tr>
-<tr class="even">
-<td align="left">education</td>
-<td align="right">-0.111</td>
-<td align="left">[-0.11, -0.12]</td>
-</tr>
-</tbody>
-</table>
 <table>
 <thead>
 <tr class="header">
@@ -3683,21 +3213,15 @@ Warning in xtfrm.data.frame(x): cannot xtfrm data frames</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiZGF0YUluZGl2X0lEXzIwMjMuMDMuMDggJT4lXG4gIGdncGxvdChhZXMoYXMubnVtZXJpYyhpbnRlcnZpZXdfYWdlKSwgZmlsbCA9IGtiaXNnbV9hc3NpZ25lZF9zZXhfNnlyKSkgK1xuICBnZW9tX2RlbnNpdHkoYWxwaGEgPSAuMykgK1xuICBsYWJzKFxuICAgIHRpdGxlID0gXCJBZ2UgTWFsZSB4IEZlbWFsZVwiLCB4ID0gXCJBZ2VcIixcbiAgICB5ID0gXCJEZW5zaXR5XCJcbiAgKSArXG4gIHRoZW1lX2x1aXMoKSJ9 -->
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a>dataIndiv_ID_<span class="dv">2023</span>.<span class="fl">03.08</span> <span class="op">%&gt;%</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">as.numeric</span>(interview_age), <span class="dt">fill =</span> kbisgm_assigned_sex_6yr)) <span class="op">+</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> <span class="fl">.3</span>) <span class="op">+</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true"></a>    <span class="dt">title =</span> <span class="st">&quot;Age Male x Female&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Age&quot;</span>,</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true"></a>    <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true"></a>  ) <span class="op">+</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_luis</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>dataIndiv_ID_<span class="dv">2023</span>.<span class="fl">03.08</span> <span class="op">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">as.numeric</span>(interview_age), <span class="dt">fill =</span> kbisgm_assigned_sex_6yr)) <span class="op">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> <span class="fl">.3</span>) <span class="op">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    <span class="dt">title =</span> <span class="st">&quot;Age Male x Female&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Age&quot;</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>  ) <span class="op">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_luis</span>()</span></code></pre></div>
 <!-- rnb-source-end -->
-<!-- rnb-warning-begin eyJkYXRhIjoiV2FybmluZzogVGhlIGBzaXplYCBhcmd1bWVudCBvZiBgZWxlbWVudF9yZWN0KClgIGlzIGRlcHJlY2F0ZWQgYXMgb2YgZ2dwbG90MiAzLjQuMC5cbuKEuSBQbGVhc2UgdXNlIHRoZSBgbGluZXdpZHRoYCBhcmd1bWVudCBpbnN0ZWFkLlxuVGhpcyB3YXJuaW5nIGlzIGRpc3BsYXllZCBvbmNlIGV2ZXJ5IDggaG91cnMuXG5DYWxsIGBsaWZlY3ljbGU6Omxhc3RfbGlmZWN5Y2xlX3dhcm5pbmdzKClgIHRvIHNlZSB3aGVyZSB0aGlzIHdhcm5pbmcgd2FzIGdlbmVyYXRlZC5cbiJ9 -->
-<pre><code>Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
-ℹ Please use the `linewidth` argument instead.
-This warning is displayed once every 8 hours.
-Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
-<!-- rnb-warning-end -->
 <!-- rnb-warning-begin eyJkYXRhIjoiV2FybmluZzogUmVtb3ZlZCA1ODIwNyByb3dzIGNvbnRhaW5pbmcgbm9uLWZpbml0ZSB2YWx1ZXMgKGBzdGF0X2RlbnNpdHkoKWApLlxuIn0= -->
 <pre><code>Warning: Removed 58207 rows containing non-finite values (`stat_density()`).</code></pre>
 <!-- rnb-warning-end -->
@@ -3717,7 +3241,7 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was genera
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoicHJvamVjdC5pbmZvIn0= -->
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true"></a>project.info</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>project.info</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiJGNvbmZpZ1xuJGNvbmZpZyR2ZXJzaW9uXG5bMV0gXCIwLjEwLjJcIlxuXG4kY29uZmlnJGRhdGFfbG9hZGluZ1xuWzFdIFRSVUVcblxuJGNvbmZpZyRkYXRhX2xvYWRpbmdfaGVhZGVyXG5bMV0gVFJVRVxuXG4kY29uZmlnJGRhdGFfaWdub3JlXG5bMV0gXCJcIlxuXG4kY29uZmlnJGNhY2hlX2xvYWRpbmdcblsxXSBUUlVFXG5cbiRjb25maWckcmVjdXJzaXZlX2xvYWRpbmdcblsxXSBGQUxTRVxuXG4kY29uZmlnJG11bmdpbmdcblsxXSBUUlVFXG5cbiRjb25maWckbG9nZ2luZ1xuWzFdIEZBTFNFXG5cbiRjb25maWckbG9nZ2luZ19sZXZlbFxuWzFdIFwiSU5GT1wiXG5cbiRjb25maWckbG9hZF9saWJyYXJpZXNcblsxXSBGQUxTRVxuXG4kY29uZmlnJGxpYnJhcmllc1xuWzFdIFwicmVzaGFwZTIsIHBseXIsIHRpZHl2ZXJzZSwgc3RyaW5nciwgbHVicmlkYXRlXCJcblxuJGNvbmZpZyRhc19mYWN0b3JzXG5bMV0gRkFMU0VcblxuJGNvbmZpZyR0YWJsZXNfdHlwZVxuWzFdIFwidGliYmxlXCJcblxuJGNvbmZpZyRhdHRhY2hfaW50ZXJuYWxfbGlicmFyaWVzXG5bMV0gRkFMU0VcblxuJGNvbmZpZyRjYWNoZV9sb2FkZWRfZGF0YVxuWzFdIFRSVUVcblxuJGNvbmZpZyRzdGlja3lfdmFyaWFibGVzXG5bMV0gXCJOT05FXCJcblxuJGNvbmZpZyR1bmRlcnNjb3JlX3ZhcmlhYmxlc1xuWzFdIFRSVUVcblxuJGNvbmZpZyRjYWNoZV9maWxlX2Zvcm1hdFxuWzFdIFwiUkRhdGFcIlxuXG5cbiRoZWxwZXJzXG5bMV0gXCJnbG9iYWxzLlJcIiBcImhlbHBlcnMuUlwiIFwicGNsZWFuLlJcIiBcbiJ9 -->
 <pre><code>$config
@@ -3809,9 +3333,9 @@ pclean.R</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoic2Vzc2lvbkluZm8oKSJ9 -->
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true"></a><span class="kw">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="kw">sessionInfo</span>()</span></code></pre></div>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUiB2ZXJzaW9uIDQuMi4yICgyMDIyLTEwLTMxKVxuUGxhdGZvcm06IHg4Nl82NC1zb2x1cy1saW51eC1nbnUgKDY0LWJpdClcblJ1bm5pbmcgdW5kZXI6IFNvbHVzIDQuMyBGb3J0aXR1ZGVcblxuTWF0cml4IHByb2R1Y3RzOiBkZWZhdWx0XG5CTEFTOiAgIC91c3IvbGliNjQvaGFzd2VsbC9saWJvcGVuYmxhc19oYXN3ZWxscC1yMC4zLjIwLnNvXG5MQVBBQ0s6IC91c3IvbGliNjQvUi9saWIvbGliUmxhcGFjay5zb1xuXG5sb2NhbGU6XG4gWzFdIExDX0NUWVBFPWVuX1VTLlVURi04ICAgICAgIExDX05VTUVSSUM9QyAgICAgICAgICAgICAgIExDX1RJTUU9cHRfQlIuVVRGLTggICAgICAgXG4gWzRdIExDX0NPTExBVEU9ZW5fVVMuVVRGLTggICAgIExDX01PTkVUQVJZPXB0X0JSLlVURi04ICAgIExDX01FU1NBR0VTPWVuX1VTLlVURi04ICAgXG4gWzddIExDX1BBUEVSPXB0X0JSLlVURi04ICAgICAgIExDX05BTUU9QyAgICAgICAgICAgICAgICAgIExDX0FERFJFU1M9QyAgICAgICAgICAgICAgXG5bMTBdIExDX1RFTEVQSE9ORT1DICAgICAgICAgICAgIExDX01FQVNVUkVNRU5UPXB0X0JSLlVURi04IExDX0lERU5USUZJQ0FUSU9OPUMgICAgICAgXG5cbmF0dGFjaGVkIGJhc2UgcGFja2FnZXM6XG5bMV0gcGFyYWxsZWwgIHN0YXRzICAgICBncmFwaGljcyAgZ3JEZXZpY2VzIHV0aWxzICAgICBkYXRhc2V0cyAgbWV0aG9kcyAgIGJhc2UgICAgIFxuXG5vdGhlciBhdHRhY2hlZCBwYWNrYWdlczpcbiBbMV0gcm1hcmtkb3duXzIuMTkgICAgICAgICBkdHBseXJfMS4yLjIgICAgICAgICAgIGthYmxlRXh0cmFfMS4zLjQgICAgICAgZG9QYXJhbGxlbF8xLjAuMTcgICAgIFxuIFs1XSBpdGVyYXRvcnNfMS4wLjE0ICAgICAgIGZvcmVhY2hfMS41LjIgICAgICAgICAgZ2xtbmV0XzQuMS02ICAgICAgICAgICBNYXRyaXhfMS41LTEgICAgICAgICAgXG4gWzldIHZpc2RhdF8wLjYuMCAgICAgICAgICAgdGlkeXJfMS4zLjAgICAgICAgICAgICB0YWJsZW9uZV8wLjEzLjIgICAgICAgIHBhdGNod29ya18xLjEuMiAgICAgICBcblsxM10gdGFicGxvdF8xLjQuMSAgICAgICAgICBmZmJhc2VfMC4xMy4yICAgICAgICAgIGZmXzQuMC45ICAgICAgICAgICAgICAgYml0XzQuMC41ICAgICAgICAgICAgIFxuWzE3XSBnZ3Bsb3QyXzMuNC4wICAgICAgICAgIGtuaXRyXzEuNDEgICAgICAgICAgICAgZHBseXJfMS4xLjIgICAgICAgICAgICBzdHJpbmdyXzEuNS4wICAgICAgICAgXG5bMjFdIGhlcmVfMS4wLjEgICAgICAgICAgICAgUHJvamVjdFRlbXBsYXRlXzAuMTAuMiB0aWJibGVfMy4yLjEgICAgICAgICAgIGRpZ2VzdF8wLjYuMzEgICAgICAgICBcblsyNV0gbnZpbWNvbV8wLjktMTMxICAgICAgIFxuXG5sb2FkZWQgdmlhIGEgbmFtZXNwYWNlIChhbmQgbm90IGF0dGFjaGVkKTpcbiBbMV0gUmNwcF8xLjAuOSAgICAgICAgc3ZnbGl0ZV8yLjEuMSAgICAgbGF0dGljZV8wLjIwLTQ1ICAgcnByb2pyb290XzIuMC4zICAgdXRmOF8xLjIuMiAgICAgICBcbiBbNl0gUjZfMi41LjEgICAgICAgICAgc3VydmV5XzQuMS0xICAgICAgZXZhbHVhdGVfMC4xOSAgICAgaGlnaHJfMC4xMCAgICAgICAgaHR0cl8xLjQuNCAgICAgICBcblsxMV0gcGlsbGFyXzEuOS4wICAgICAgcmxhbmdfMS4xLjAgICAgICAgcnN0dWRpb2FwaV8wLjE0ICAgZGF0YS50YWJsZV8xLjE0LjYganF1ZXJ5bGliXzAuMS40ICBcblsxNl0gbGFiZWxpbmdfMC40LjIgICAgc3BsaW5lc180LjIuMiAgICAgd2Vic2hvdF8wLjUuNCAgICAgbXVuc2VsbF8wLjUuMCAgICAgY29tcGlsZXJfNC4yLjIgICBcblsyMV0geGZ1bl8wLjM5ICAgICAgICAgcGtnY29uZmlnXzIuMC4zICAgc3lzdGVtZm9udHNfMS4wLjQgc2hhcGVfMS40LjYgICAgICAgaHRtbHRvb2xzXzAuNS40ICBcblsyNl0gbWl0b29sc18yLjQgICAgICAgdGlkeXNlbGVjdF8xLjIuMCAgY29kZXRvb2xzXzAuMi0xOCAgZmFuc2lfMS4wLjMgICAgICAgdmlyaWRpc0xpdGVfMC40LjFcblszMV0gY3JheW9uXzEuNS4yICAgICAgd2l0aHJfMi41LjAgICAgICAgZ3JpZF80LjIuMiAgICAgICAganNvbmxpdGVfMS44LjQgICAgZ3RhYmxlXzAuMy4xICAgICBcblszNl0gbGlmZWN5Y2xlXzEuMC4zICAgREJJXzEuMS4zICAgICAgICAgbWFncml0dHJfMi4wLjMgICAgc2NhbGVzXzEuMi4xICAgICAgY2FjaGVtXzEuMC42ICAgICBcbls0MV0gY2xpXzMuNi4wICAgICAgICAgc3RyaW5naV8xLjcuMTIgICAgZmFydmVyXzIuMS4xICAgICAgYnNsaWJfMC40LjIgICAgICAgeG1sMl8xLjMuMyAgICAgICBcbls0Nl0gZ2VuZXJpY3NfMC4xLjMgICAgdmN0cnNfMC42LjEgICAgICAgZmFzdG1hdGNoXzEuMS0zICAgdG9vbHNfNC4yLjIgICAgICAgZ2x1ZV8xLjYuMiAgICAgICBcbls1MV0gcHVycnJfMS4wLjEgICAgICAgeWFtbF8yLjMuNiAgICAgICAgZmFzdG1hcF8xLjEuMCAgICAgc3Vydml2YWxfMy40LTAgICAgY29sb3JzcGFjZV8yLjAtMyBcbls1Nl0gcnZlc3RfMS4wLjMgICAgICAgc2Fzc18wLjQuNiAgICAgICBcbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiUiB2ZXJzaW9uIDQuMi4yICgyMDIyLTEwLTMxKVxuUGxhdGZvcm06IHg4Nl82NC1zb2x1cy1saW51eC1nbnUgKDY0LWJpdClcblJ1bm5pbmcgdW5kZXI6IFNvbHVzIDQuMyBGb3J0aXR1ZGVcblxuTWF0cml4IHByb2R1Y3RzOiBkZWZhdWx0XG5CTEFTOiAgIC91c3IvbGliNjQvaGFzd2VsbC9saWJvcGVuYmxhc19oYXN3ZWxscC1yMC4zLjIwLnNvXG5MQVBBQ0s6IC91c3IvbGliNjQvUi9saWIvbGliUmxhcGFjay5zb1xuXG5sb2NhbGU6XG4gWzFdIExDX0NUWVBFPWVuX1VTLlVURi04ICAgICAgIExDX05VTUVSSUM9QyAgICAgICAgICAgICAgIExDX1RJTUU9cHRfQlIuVVRGLTggICAgICAgXG4gWzRdIExDX0NPTExBVEU9ZW5fVVMuVVRGLTggICAgIExDX01PTkVUQVJZPXB0X0JSLlVURi04ICAgIExDX01FU1NBR0VTPWVuX1VTLlVURi04ICAgXG4gWzddIExDX1BBUEVSPXB0X0JSLlVURi04ICAgICAgIExDX05BTUU9QyAgICAgICAgICAgICAgICAgIExDX0FERFJFU1M9QyAgICAgICAgICAgICAgXG5bMTBdIExDX1RFTEVQSE9ORT1DICAgICAgICAgICAgIExDX01FQVNVUkVNRU5UPXB0X0JSLlVURi04IExDX0lERU5USUZJQ0FUSU9OPUMgICAgICAgXG5cbmF0dGFjaGVkIGJhc2UgcGFja2FnZXM6XG5bMV0gcGFyYWxsZWwgIHN0YXRzICAgICBncmFwaGljcyAgZ3JEZXZpY2VzIHV0aWxzICAgICBkYXRhc2V0cyAgbWV0aG9kcyAgIGJhc2UgICAgIFxuXG5vdGhlciBhdHRhY2hlZCBwYWNrYWdlczpcbiBbMV0gcm1hcmtkb3duXzIuMTkgICAgICAgICBrYWJsZUV4dHJhXzEuMy40ICAgICAgIGRvUGFyYWxsZWxfMS4wLjE3ICAgICAgaXRlcmF0b3JzXzEuMC4xNCAgICAgIFxuIFs1XSBmb3JlYWNoXzEuNS4yICAgICAgICAgIGdsbW5ldF80LjEtNiAgICAgICAgICAgTWF0cml4XzEuNS0xICAgICAgICAgICB2aXNkYXRfMC42LjAgICAgICAgICAgXG4gWzldIHRpZHlyXzEuMy4wICAgICAgICAgICAgdGFibGVvbmVfMC4xMy4yICAgICAgICBwYXRjaHdvcmtfMS4xLjIgICAgICAgIHRhYnBsb3RfMS40LjEgICAgICAgICBcblsxM10gZmZiYXNlXzAuMTMuMiAgICAgICAgICBmZl80LjAuOSAgICAgICAgICAgICAgIGJpdF80LjAuNSAgICAgICAgICAgICAgZ2dwbG90Ml8zLjQuMCAgICAgICAgIFxuWzE3XSBrbml0cl8xLjQxICAgICAgICAgICAgIGRwbHlyXzEuMS4yICAgICAgICAgICAgc3RyaW5ncl8xLjUuMCAgICAgICAgICBoZXJlXzEuMC4xICAgICAgICAgICAgXG5bMjFdIFByb2plY3RUZW1wbGF0ZV8wLjEwLjIgdGliYmxlXzMuMi4xICAgICAgICAgICBkaWdlc3RfMC42LjMxICAgICAgICAgIG52aW1jb21fMC45LTEzMSAgICAgICBcblxubG9hZGVkIHZpYSBhIG5hbWVzcGFjZSAoYW5kIG5vdCBhdHRhY2hlZCk6XG4gWzFdIFJjcHBfMS4wLjkgICAgICAgIHN2Z2xpdGVfMi4xLjEgICAgIGxhdHRpY2VfMC4yMC00NSAgIHJwcm9qcm9vdF8yLjAuMyAgIHV0ZjhfMS4yLjIgICAgICAgXG4gWzZdIFI2XzIuNS4xICAgICAgICAgIHN1cnZleV80LjEtMSAgICAgIGV2YWx1YXRlXzAuMTkgICAgIGh0dHJfMS40LjQgICAgICAgIGhpZ2hyXzAuMTAgICAgICAgXG5bMTFdIHBpbGxhcl8xLjkuMCAgICAgIHJsYW5nXzEuMS4wICAgICAgIHJzdHVkaW9hcGlfMC4xNCAgIGpxdWVyeWxpYl8wLjEuNCAgIGxhYmVsaW5nXzAuNC4yICAgXG5bMTZdIHNwbGluZXNfNC4yLjIgICAgIHdlYnNob3RfMC41LjQgICAgIG11bnNlbGxfMC41LjAgICAgIGNvbXBpbGVyXzQuMi4yICAgIHhmdW5fMC4zOSAgICAgICAgXG5bMjFdIHBrZ2NvbmZpZ18yLjAuMyAgIHN5c3RlbWZvbnRzXzEuMC40IHNoYXBlXzEuNC42ICAgICAgIGh0bWx0b29sc18wLjUuNCAgIG1pdG9vbHNfMi40ICAgICAgXG5bMjZdIHRpZHlzZWxlY3RfMS4yLjAgIGNvZGV0b29sc18wLjItMTggIGZhbnNpXzEuMC4zICAgICAgIHZpcmlkaXNMaXRlXzAuNC4xIGNyYXlvbl8xLjUuMiAgICAgXG5bMzFdIHdpdGhyXzIuNS4wICAgICAgIGdyaWRfNC4yLjIgICAgICAgIGpzb25saXRlXzEuOC40ICAgIGd0YWJsZV8wLjMuMSAgICAgIGxpZmVjeWNsZV8xLjAuMyAgXG5bMzZdIERCSV8xLjEuMyAgICAgICAgIG1hZ3JpdHRyXzIuMC4zICAgIHNjYWxlc18xLjIuMSAgICAgIGNhY2hlbV8xLjAuNiAgICAgIGNsaV8zLjYuMCAgICAgICAgXG5bNDFdIHN0cmluZ2lfMS43LjEyICAgIGZhcnZlcl8yLjEuMSAgICAgIGJzbGliXzAuNC4yICAgICAgIHhtbDJfMS4zLjMgICAgICAgIGdlbmVyaWNzXzAuMS4zICAgXG5bNDZdIHZjdHJzXzAuNi4xICAgICAgIGZhc3RtYXRjaF8xLjEtMyAgIHRvb2xzXzQuMi4yICAgICAgIGdsdWVfMS42LjIgICAgICAgIHB1cnJyXzEuMC4xICAgICAgXG5bNTFdIGZhc3RtYXBfMS4xLjAgICAgIHN1cnZpdmFsXzMuNC0wICAgIHlhbWxfMi4zLjYgICAgICAgIGNvbG9yc3BhY2VfMi4wLTMgIHJ2ZXN0XzEuMC4zICAgICAgXG5bNTZdIHNhc3NfMC40LjYgICAgICAgXG4ifQ== -->
 <pre><code>R version 4.2.2 (2022-10-31)
 Platform: x86_64-solus-linux-gnu (64-bit)
 Running under: Solus 4.3 Fortitude
@@ -3830,27 +3354,26 @@ attached base packages:
 [1] parallel  stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] rmarkdown_2.19         dtplyr_1.2.2           kableExtra_1.3.4       doParallel_1.0.17     
- [5] iterators_1.0.14       foreach_1.5.2          glmnet_4.1-6           Matrix_1.5-1          
- [9] visdat_0.6.0           tidyr_1.3.0            tableone_0.13.2        patchwork_1.1.2       
-[13] tabplot_1.4.1          ffbase_0.13.2          ff_4.0.9               bit_4.0.5             
-[17] ggplot2_3.4.0          knitr_1.41             dplyr_1.1.2            stringr_1.5.0         
-[21] here_1.0.1             ProjectTemplate_0.10.2 tibble_3.2.1           digest_0.6.31         
-[25] nvimcom_0.9-131       
+ [1] rmarkdown_2.19         kableExtra_1.3.4       doParallel_1.0.17      iterators_1.0.14      
+ [5] foreach_1.5.2          glmnet_4.1-6           Matrix_1.5-1           visdat_0.6.0          
+ [9] tidyr_1.3.0            tableone_0.13.2        patchwork_1.1.2        tabplot_1.4.1         
+[13] ffbase_0.13.2          ff_4.0.9               bit_4.0.5              ggplot2_3.4.0         
+[17] knitr_1.41             dplyr_1.1.2            stringr_1.5.0          here_1.0.1            
+[21] ProjectTemplate_0.10.2 tibble_3.2.1           digest_0.6.31          nvimcom_0.9-131       
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.9        svglite_2.1.1     lattice_0.20-45   rprojroot_2.0.3   utf8_1.2.2       
- [6] R6_2.5.1          survey_4.1-1      evaluate_0.19     highr_0.10        httr_1.4.4       
-[11] pillar_1.9.0      rlang_1.1.0       rstudioapi_0.14   data.table_1.14.6 jquerylib_0.1.4  
-[16] labeling_0.4.2    splines_4.2.2     webshot_0.5.4     munsell_0.5.0     compiler_4.2.2   
-[21] xfun_0.39         pkgconfig_2.0.3   systemfonts_1.0.4 shape_1.4.6       htmltools_0.5.4  
-[26] mitools_2.4       tidyselect_1.2.0  codetools_0.2-18  fansi_1.0.3       viridisLite_0.4.1
-[31] crayon_1.5.2      withr_2.5.0       grid_4.2.2        jsonlite_1.8.4    gtable_0.3.1     
-[36] lifecycle_1.0.3   DBI_1.1.3         magrittr_2.0.3    scales_1.2.1      cachem_1.0.6     
-[41] cli_3.6.0         stringi_1.7.12    farver_2.1.1      bslib_0.4.2       xml2_1.3.3       
-[46] generics_0.1.3    vctrs_0.6.1       fastmatch_1.1-3   tools_4.2.2       glue_1.6.2       
-[51] purrr_1.0.1       yaml_2.3.6        fastmap_1.1.0     survival_3.4-0    colorspace_2.0-3 
-[56] rvest_1.0.3       sass_0.4.6       </code></pre>
+ [6] R6_2.5.1          survey_4.1-1      evaluate_0.19     httr_1.4.4        highr_0.10       
+[11] pillar_1.9.0      rlang_1.1.0       rstudioapi_0.14   jquerylib_0.1.4   labeling_0.4.2   
+[16] splines_4.2.2     webshot_0.5.4     munsell_0.5.0     compiler_4.2.2    xfun_0.39        
+[21] pkgconfig_2.0.3   systemfonts_1.0.4 shape_1.4.6       htmltools_0.5.4   mitools_2.4      
+[26] tidyselect_1.2.0  codetools_0.2-18  fansi_1.0.3       viridisLite_0.4.1 crayon_1.5.2     
+[31] withr_2.5.0       grid_4.2.2        jsonlite_1.8.4    gtable_0.3.1      lifecycle_1.0.3  
+[36] DBI_1.1.3         magrittr_2.0.3    scales_1.2.1      cachem_1.0.6      cli_3.6.0        
+[41] stringi_1.7.12    farver_2.1.1      bslib_0.4.2       xml2_1.3.3        generics_0.1.3   
+[46] vctrs_0.6.1       fastmatch_1.1-3   tools_4.2.2       glue_1.6.2        purrr_1.0.1      
+[51] fastmap_1.1.0     survival_3.4-0    yaml_2.3.6        colorspace_2.0-3  rvest_1.0.3      
+[56] sass_0.4.6       </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3867,7 +3390,7 @@ loaded via a namespace (and not attached):
 </ol>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW5zcGVjdGluZyBkYXRhIGFuZCBpbml0aWFsIG1vZGVsaW5nIGF0dGVtcHRzIgpzdWJ0aXRsZTogIkFCQ0QgcmV0ZW50aW9uIFdHIgphdXRob3I6ICJMdWlzIENhc3Ryby1kZS1BcmF1am8gXltQb3N0LWRvYyBUMzIuIGx1aXMuYXJhdWpvQHZjdWhlYWx0aC5vcmcgIFxuXSIKZGF0ZTogImByIGZvcm1hdChTeXMudGltZSgpLCAnJWQgJUIsICVZJyApYCIKaW5zdGl0dXRlOiBWaXJnaW5pYSBJbnN0aXR1dGUgZm9yIFBzeWNoaWF0cmljIGFuZCBCZWhhdmlvcmFsIEdlbmV0aWNzIApsYW5nOiBlbgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgaGlnaGxpZ2h0OiB6ZW5idXJuCiAgICB0aGVtZTogZmxhdGx5CiAgICB0b2M6IHllcwogICAgZGZfcHJpbnQ6IHBhZ2VkICAgIAogICAgdG9jX2Zsb2F0OiB5ZXMKICAgIGNvZGVfZG93bmxvYWRpbmc6IHllcwotLS0KCgpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0KCmMoICMgSSB1c2UgbGludXgsIHRoaXMgc2F2ZXMgbXkgdGltZSBsb2FkaW5nL2luc3RhbGxpbmcgcGFja2FnZXMKICAiUHJvamVjdFRlbXBsYXRlIiwgImhlcmUiLCAic3RyaW5nciIsCiAgImRwbHlyIiwgImtuaXRyIiwgImdncGxvdDIiLCAidGFicGxvdCIsCiAgInBhdGNod29yayIsICJ0YWJsZW9uZSIsICJ0aWR5ciIsICJ2aXNkYXQiLCAiZ2xtbmV0IiwKICAiZG9QYXJhbGxlbCIsICJrYWJsZUV4dHJhIiwgImR0cGx5ciIKKSB8PgogIGxhcHBseShmdW5jdGlvbih4KSB7CiAgICBpZiAoIXJlcXVpcmUoeCwgY2hhcmFjdGVyLm9ubHkgPSBUUlVFKSkgewogICAgICBpbnN0YWxsLnBhY2thZ2VzKHgsIGRlcGVuZGVuY2llcyA9IFRSVUUpCiAgICAgIGxpYnJhcnkoeCkKICAgIH0KICB9KQoKc2V0LnNlZWQoNDIpICMgc2V0dGluZyBzZWVkIGZvciBzdG9jaGFzdGljIGZ1bmN0aW9ucwpzZXR3ZCgiLi4iKSAjIGhlcmUoKSkgIyBuZWVkZWQgYXMgd2UgYXJlIGluIC9zcmMsIGluIGxpbnV4IGhlcmUoKSBzaG91bGQgYmUgdXNlZAoKbG9hZC5wcm9qZWN0KCkgIyBMb2FkaW5nIHRoZSBwcm9qZWN0CnBjbGVhbigpCgojIFIgb3B0aW9ucwpvcHRpb25zKAogIGRpZ2l0cyA9IDMsICMgT25seSB0d28gZGVjaW1hbCBkaWdpdHMKICBzY2lwZW4gPSA5OTksICMgUmVtb3ZlIHNjaWVudGlmaWMgbm90YXRpb24KICB3aWR0aCA9IDEwMAopCgoKIyBLbml0ciBvcHRpb25zCmtuaXRyOjpvcHRzX2NodW5rJHNldCgKICBjb21tZW50ID0gTkEsICMgcmVtb3ZlIGNvbW1lbnQgc3ltYm9sCiAgY2FjaGUucGF0aCA9ICIuLi9jYWNoZS8iLCAjIHdoZXJlIHNob3VsZCBJIHNhdmUgY2FjaGU/CiAgZmlnLnBhdGggPSAiLi4vZ3JhcGhzLyIsICMgd2hlcmUgc2hvdWxkIEkgc2F2ZSBmaWd1cmVzPwogIGVjaG8gPSBULCAjIGRvbnQgZWNobyBieSBkZWZhdWx0CiAgY2FjaGUgPSBGLCAjIGRvbnQgY2FjaGUgYnkgZGVmYXVsdAogIGZpZy53aWR0aCA9IDEwLCAjIHNldHRpbmcgdGhlIGJlc3Qgd2l0ZHRoIGZvciBmaWd1cmVzCiAgZmlnLmhlaWdodCA9IDcsICMgYmVzdCBoZWlnaHQKICBkcGkgPSAzMDAsICMgaGlnaCBkcGkgZm9yIHB1YmxpY2F0aW9uIHF1YWxpdHksCiAgZXJyb3IgPSBGQUxTRSAjIGRvIG5vdCBpbnRlcnJ1cHQgaW4gY2FzZSBvZiBlcnJvcnMKKQoKCmNiX3BhbGV0dGUgPC0gYygKICAiIzk5OTk5OSIsICIjRTY5RjAwIiwgIiM1NkI0RTkiLCAiIzAwOUU3MyIsCiAgIiNGMEU0NDIiLCAiIzAwNzJCMiIsICIjRDU1RTAwIiwgIiNDQzc5QTciCikKCnRoZW1lX2x1aXMgPC0gZnVuY3Rpb24oKSB7CiAgcmV0dXJuX3RoZW1lIDwtIGdncGxvdDI6OnRoZW1lX2J3KDEyKSArCiAgICBnZ3Bsb3QyOjp0aGVtZSgKICAgICAgcGFuZWwuYm9yZGVyID0gZWxlbWVudF9yZWN0KGNvbG91ciA9ICJibGFjayIpLAogICAgICBsZWdlbmQuYmFja2dyb3VuZCA9IGVsZW1lbnRfcmVjdChsaW5ldHlwZSA9IDEsIHNpemUgPSAwLjIsIGNvbG91ciA9IDEpCiAgICApCn0KCiMgcmVnaXN0ZXIgcGFyYWxsZWwgYmFja2VuZApjbCA8LSBtYWtlQ2x1c3RlcihkZXRlY3RDb3JlcygpLCBvdXRmaWxlID0gIiIpCnJlZ2lzdGVyRG9QYXJhbGxlbChjbCkKYGBgCgoKYGBge3IgbXVuZ2V9CgpyZXRlbnRpb24gIDwtIHJlYWQuY3N2KCJ+L0Rvd25sb2Fkcy9kYXRhSW5kaXZfSURfMjAyMy0wMy0wOC5jc3YiKSAlPiUKICBmaWx0ZXIoZXZlbnQgPT0gIkJhc2VsaW5lIiB8IGV2ZW50ID09ICIxIFllYXIiKSAlPiUKICBzZWxlY3QocGd1aWQsIGV2ZW50LCB2aXNpdF9zdGF0dXNfYWdnciwgaW5jb21lX2hvdXNlaG9sZCwgc2l0ZSwgcmFjZV9ldGhuaWNpdHksIGVkdWNhdGlvbikgJT4lCiAgbXV0YXRlKG1pc3NlZCA9IGlmZWxzZSh2aXNpdF9zdGF0dXNfYWdnciA9PSAiTWlzc2VkIChleHBsYWluZWQpIiB8CiAgICAgICAgICAgICAgICB2aXNpdF9zdGF0dXNfYWdnciA9PSAiTWlzc2VkICh1bmV4cGxhaW5lZCkiLCAxLCAwKSwKICBzaXRlID0gYXMuZmFjdG9yKHNpdGUpKQoKIyBiZWxvdyBpcyBhIHZlcnNpb24gd2l0aCB3aWRlIGZvcm1hdCwgd2hpY2ggaXMgdGhlIGNvcnJlY3Qgd2F5LCBidXQgdGhlcmUgaXMgYW4gb2RkaXR5IGluCiMgdGhlIGRhdGEgdGhhdCB0aGUgdmFsdWVzIGZvciBzb21lIGRlbW9ncmFwaGljIGluZm8gb25seSBhcHBlYXIgYXQgdGhlIGZvbGxvdyB1cCwgbm90IGF0IHRoZSBiYXNlbGluZQojIHNvIEkgc3VwcG9zZSB0aGUgZGF0YSB3YXMgam9pbmVkIGluY29ycmVjdGx5LgoKIyByZXRlbnRpb25fd2lkZSA8LSBkYXRhSW5kaXZfSURfMjAyMy4wMy4wOCAlPiUKIyAgIHNlbGVjdChwZ3VpZCwgZXZlbnQsIHZpc2l0X3N0YXR1c19hZ2dyLCBpbmNvbWVfaG91c2Vob2xkLCBzaXRlLCByYWNlX2V0aG5pY2l0eSwgZWR1Y2F0aW9uKSAlPiUKIyAgIGdyb3VwX2J5KHBndWlkKSAlPiUKIyAgIGZpbHRlcihldmVudCA9PSAiQmFzZWxpbmUiIHwgZXZlbnQgPT0gIjEgWWVhciIpICU+JQojICAgbXV0YXRlKG1pc3NlZCA9IGlmZWxzZSh2aXNpdF9zdGF0dXNfYWdnciA9PSAiTWlzc2VkIChleHBsYWluZWQpIiB8CiMgICAgICAgICAgICAgICAgIHZpc2l0X3N0YXR1c19hZ2dyID09ICJNaXNzZWQgKHVuZXhwbGFpbmVkKSIsIDEsIDApKSAlPiUKIyAgIHBpdm90X3dpZGVyKG5hbWVzX2Zyb20gPSBldmVudCwgdmFsdWVzX2Zyb20gPSBjKG1pc3NlZCwgaW5jb21lX2hvdXNlaG9sZCwgc2l0ZSwgcmFjZV9ldGhuaWNpdHksIGVkdWNhdGlvbikpICU+JQojICAgbXV0YXRlKGBtaXNzZWRfMSBZZWFyYCA9IGlmZWxzZShpcy5uYShgbWlzc2VkXzEgWWVhcmApLCAwLCBgbWlzc2VkXzEgWWVhcmApKQoKCiMgcmV0ZW50aW9uICU+JSAKIyAgIGdyb3VwX2J5KGV2ZW50KSAlPiUgCiMgICBzdW1tYXJpc2UobiA9IG4oKSwgCiMgICAgICAgICAgICAgbl9taXNzZWQgPSBzdW0obWlzc2VkX3Zpc2l0XzF5KSwgCiMgICAgICAgICAgICAgcGVyY19taXNzZWQgPSByb3VuZChuX21pc3NlZC9uLCAyKSkgfD4KIyAgIGthYmxlKGFsaWduID0gImMiLCBjYXB0aW9uID0gIk51bWJlciBvZiBwYXJ0aWNpcGFudHMgYW5kIHBlcmNlbnRhZ2Ugb2YgbWlzc2VkIHZpc2l0cyBieSBldmVudCIpIHw+CiMgICBrYWJsZV9zdHlsaW5nKCkKIyAjIEFib3V0IDUlIG9mIHBhcnRpY2lwYW50cyBtaXNzZWQgdGhlaXIgMSB5ZWFyIHZpc2l0CgpgYGAKCiMgTW9kZWxpbmcKIyBMZWF2ZS1vbmUtb3V0IGNyb3NzIHZhbGlkYXRpb24gYW5kIGNvZWZmCgoKVGhlIHR5cGljYWwgc3Vic2V0dGluZyBiZXR3ZWVuIHRlc3QgYW5kIHRyYWluaW5nIHJldHVybiBsZXNzIHN0YWJsZSBjb2VmZnMuIEhlbmNlLCB0cnlpbmcgTE9PQ1YsIHdoaWNoIHJldHVybmVkIG1vcmUgc3RhYmxlIHJlc3VsdHMuCgotIE5leHQgc3RlcCB3aWxsIGJlIHRvIHVucGFjayB0aGUgbGV2ZWxzIG9mIHRoZXNlIG9yZGluYWwgdmFycy4gQ3VycmVudGx5IHRoZXkgc2VlbSB0byBwb2ludCB0byB0aGUgd3JvbmcgZGlyZWN0aW9uIChuZWdhdGl2ZSBlZmZlY3Qgb24gbWlzc2luZyBhIHZpc2l0KS4KCmBgYHtyfQoKCiMgU2V0IHRoZSBudW1iZXIgb2YgaXRlcmF0aW9ucwppdGVyYXRpb25zIDwtIDIxICAjIEFzc3VtaW5nIHRoZXJlIGFyZSAyMSB1bmlxdWUgc2l0ZXMKCiMgSW5pdGlhbGl6ZSBlbXB0eSB2ZWN0b3JzIGZvciBzdG9yaW5nIHJlc3VsdHMKbGFtYmRhX3ZhbHVlcyA8LSBjKCkKUk1TRV92YWx1ZXMgPC0gYygpCnZhcl9pbXBfYXZnIDwtIE5VTEwKCiMgSXRlcmF0ZSBvdmVyIHRoZSBzaXRlcwpmb3IgKGlzaXRlIGluIHVuaXF1ZShyZXRlbnRpb24kc2l0ZSkpIHsKICAjIFNwbGl0IHJldGVudGlvbiBpbnRvIHRyYWluIGFuZCB0ZXN0CiAgdHJhaW4gPC0gcmV0ZW50aW9uICU+JQogICAgZmlsdGVyKHNpdGUgIT0gaXNpdGUpICAjIExlYXZlIG91dCB0aGUgY3VycmVudCBzaXRlCgogIHRlc3QgPC0gcmV0ZW50aW9uICU+JQogICAgZmlsdGVyKHNpdGUgPT0gaXNpdGUpICAjIFVzZSBvbmx5IHRoZSBjdXJyZW50IHNpdGUKCiAgIyBQcmVwYXJlIGRhdGFzZXQgaW4gZ2xtbmV0IGZvcm1hdCBmb3IgdHJhaW4gYW5kIHRlc3Qgc2V0cwogIG91dGNvbWVfdHJhaW4gPC0gZGF0YS5tYXRyaXgodHJhaW4kbWlzc2VkKQogIG91dGNvbWVfdGVzdCA8LSBkYXRhLm1hdHJpeCh0ZXN0JG1pc3NlZCkKCiAgcHJlZGljdG9yc190cmFpbiA8LSB0cmFpbiAlPiUKICAgIHNlbGVjdChpbmNvbWVfaG91c2Vob2xkLCAgcmFjZV9ldGhuaWNpdHksIGVkdWNhdGlvbikgJT4lCiAgICBkYXRhLm1hdHJpeCgpCgogIHByZWRpY3RvcnNfdGVzdCA8LSB0ZXN0ICU+JQogICAgc2VsZWN0KGluY29tZV9ob3VzZWhvbGQsICByYWNlX2V0aG5pY2l0eSwgZWR1Y2F0aW9uKSAlPiUKICAgIGRhdGEubWF0cml4KCkKCiAgbWVzc2FnZSgiU2l0ZTogIiwgaXNpdGUpCgogICMgUGVyZm9ybSBjcm9zcy12YWxpZGF0ZWQgZ2xtbmV0IG1vZGVsIGZpdHRpbmcKICBjdl9tb2RlbCA8LSBjdi5nbG1uZXQocHJlZGljdG9yc190cmFpbiwgb3V0Y29tZV90cmFpbiwKICAgICAgICAgICAgICAgICAgICAgICAgbmZvbGRzID0gMTAsICAjIFVzZSBMT09DVgogICAgICAgICAgICAgICAgZmFtaWx5ID0gImJpbm9taWFsIiwKICBwYXJhbGxlbCA9VCkKCiAgIyBHZXQgdGhlIGJlc3QgbGFtYmRhCiAgYmVzdF9sYW1iZGEgPC0gY3ZfbW9kZWwkbGFtYmRhLjFzZQoKICAjIEZpdCB0aGUgbW9kZWwgdXNpbmcgdGhlIGJlc3QgbGFtYmRhIG9uIHRoZSB0ZXN0IHNldAogIGZpdCA8LSBnbG1uZXQocHJlZGljdG9yc190ZXN0LCBvdXRjb21lX3Rlc3QsCiAgICAgICAgICAgICAgICBhbHBoYSA9IDEsCiAgICAgICAgICAgICAgICB0eXBlLm1lYXN1cmUgPSAibXNlIiwKICAgICAgICAgICAgICAgIGxhbWJkYSA9IGJlc3RfbGFtYmRhLAogICAgICAgICAgICAgICAgZmFtaWx5ID0gImJpbm9taWFsIiwKICAgICAgICAgICAgICAgIGludGVyY2VwdCA9IEZBTFNFKQoKICAjIEV4dHJhY3QgdGhlIGNvZWZmaWNpZW50cwogIHZhcl9pbXAgPC0gY29lZihmaXQsIHMgPSBmaXQkbGFtYmRhLjFzZSkgJT4lCiAgICBhcy5tYXRyaXgoKSAlPiUKICAgIGFzLmRhdGEuZnJhbWUoKSAlPiUKICAgIHJvd25hbWVzX3RvX2NvbHVtbigiRmFjdG9yIikgJT4lCiAgICByZW5hbWUoIkltcG9ydGFuY2UiID0gInMwIikKCiAgIyBTdG9yZSB0aGUgcmVzdWx0cwogIFJNU0UgPC0gY3ZfbW9kZWwkY3ZtW2N2X21vZGVsJGxhbWJkYSA9PSBjdl9tb2RlbCRsYW1iZGEuMXNlXSAlPiUgc3FydCgpICU+JSByb3VuZCgyKQogIGxhbWJkYSA8LSBjdl9tb2RlbCRsYW1iZGEuMXNlICU+JSByb3VuZCgyKQoKICBpZiAoaXMubnVsbCh2YXJfaW1wX2F2ZykpIHsKICAgIHZhcl9pbXBfYXZnIDwtIHZhcl9pbXAKICB9IGVsc2UgewogICAgdmFyX2ltcF9hdmcgPC0gbGVmdF9qb2luKHZhcl9pbXBfYXZnLCB2YXJfaW1wLCBieSA9IGMoIkZhY3RvciIpKQogICAgbGFtYmRhX3ZhbHVlcyA8LSBsYW1iZGFfdmFsdWVzICU+JSBhcHBlbmQobGFtYmRhKQogICAgUk1TRV92YWx1ZXMgPC0gUk1TRV92YWx1ZXMgJT4lIGFwcGVuZChSTVNFKQogIH0KfQoKCnVwcGVyID0gYygpCmxvd2VyID0gYygpCgpmb3IgKHJvdyBpbiBzZXFfbGVuKG5yb3codmFyX2ltcF9hdmcpKSl7CiAgdXBwZXJbcm93XSA9IHNvcnQodmFyX2ltcF9hdmdbcm93LF0pW3JvdW5kKGl0ZXJhdGlvbnMqMC45NzUsMCldICMgOTcuNXRoCiAgbG93ZXJbcm93XSA9IHNvcnQodmFyX2ltcF9hdmdbcm93LF0pW3JvdW5kKGl0ZXJhdGlvbnMqMC4yNSwwKV0gIyAyNXRoCn0KCgoKIyBnZXQgdGhlIGZpcnN0IGNvbHVtbiBhcyByb3duYW1lcwp2YXJfaW1wX2F2ZyA8LSBjb2x1bW5fdG9fcm93bmFtZXModmFyX2ltcF9hdmcsIHZhciA9ICJGYWN0b3IiKQojIG5vdyBjcmVhdGUgYSBtZWFuIHBlciByb3c6CnZhcl9pbXBfYXZnIDwtIHJvd01lYW5zKHZhcl9pbXBfYXZnKQojIGZvcm1hdCBhcyBkYXRhZnJhbWUKdmFyX2ltcF9hdmcgPC0gYXMuZGF0YS5mcmFtZSh2YXJfaW1wX2F2ZykKIyBnZXQgcm93bmFtZXMgYmFjayBhcyBjb2x1bW4KdmFyX2ltcF9hdmcgPC0gcm93bmFtZXNfdG9fY29sdW1uKHZhcl9pbXBfYXZnLCB2YXIgPSAiRmFjdG9yIikKIyByZW5hbWUgdGhlIEltcG9ydGFuY2UgY29sdW1uCnZhcl9pbXBfYXZnIDwtIHZhcl9pbXBfYXZnICU+JQogIHJlbmFtZShJbXBvcnRhbmNlID0gdmFyX2ltcF9hdmcpCgojIHJvdW5kIHRoZSBjb25maWRlbmNlIGludGVydmFscwp1cHBlciA8LSB1bmxpc3QodXBwZXIpICU+JSByb3VuZCgyKQpsb3dlciA8LSB1bmxpc3QobG93ZXIpICU+JSByb3VuZCgyKQoKIyBjcmVhdGUgQ0kgY29sdW1uCnZhcl9pbXBfYXZnJCI5NSUgQ0kiIDwtIHBhc3RlKCJbIiwgbG93ZXIsICIsICIsIHVwcGVyLCAiXSIsIHNlcCA9ICIiKQoKIyBmaWx0ZXIgb3V0IHByZWRpY3RvcnMgd2l0aCBWYXJpYWJsZSBpbXBvcnRhbmNlIGdyZWF0ZXIgdGhhbiB6ZXJvCnZhcl9pbXBfYXZnIDwtIHZhcl9pbXBfYXZnICU+JSAgCiAgZmlsdGVyKGFicyhJbXBvcnRhbmNlKSA+IDApCgp2YXJfaW1wX2F2ZyAlPiUgCiAgI211dGF0ZShJbXBvcnRhbmNlID0gcm91bmQoSW1wb3J0YW5jZSwgMikpICU+JSAKICBrYWJsZUV4dHJhOjprYmwoYm9va3RhYnMgPSBULAogICAgICAgICAgICAgICAgICBjb2wubmFtZXMgPSBjKCJGYWN0b3IiLCAibWVhbiBjb2VmZi4iLCAiOTUlIENJIiksCiAgICAgICAgICAgICAgICAgIGVzY2FwZSA9IFRSVUUsCiAgICAgICAgICAgICAgICAgIGZvcm1hdCA9ICJtYXJrZG93biIpCgoKCmBgYAoKfEZhY3RvciAgICAgICAgICAgfCBtZWFuIGNvZWZmLnw5NSUgQ0kgICAgICAgICB8Cnw6LS0tLS0tLS0tLS0tLS0tLXwtLS0tLS0tLS0tLTp8Oi0tLS0tLS0tLS0tLS0tfAp8aW5jb21lX2hvdXNlaG9sZCB8ICAgICAgLTAuMDgxfFstMC4wNSwgMF0gICAgIHwKfHJhY2VfZXRobmljaXR5ICAgfCAgICAgIC0wLjU3MnxbLTAuMzgsIC0wLjkyXSB8CnxlZHVjYXRpb24gICAgICAgIHwgICAgICAtMC4xMjN8Wy0wLjA5LCAwXSAgICAgfAoKCiMjIEdMTW5ldCB3IGxhc3NvIAoKYGBge3J9CgpuX2ZvbGRzID0gMTAgIyB0aGUgbnVtYmVyIG9mIGZvbGRzIGZvciBjcm9zcyB2YWxpZGF0aW9uCnZhcl9pbXBfYXZnID0gdGliYmxlKCkgIyBwcmVwYXJlIHRoZSBvdXRwdXQgZGF0YWZyYW1lIC8gdGliYmxlCml0ZXJhdGlvbnMgPSAxMDAgIyBudW1iZXIgb2YgYm9vdHN0cmFwIHNhbXBsZXMKCgpmb3IgKGkgaW4gMTppdGVyYXRpb25zKSB7CiAKICAjIHNwbGl0IHJldGVudGlvbiBpbnRvIHRyYWluIGFuZCB0ZXN0CiAgdHJhaW4gPC0gcmV0ZW50aW9uICU+JSAKICAgIHNsaWNlX3NhbXBsZShwcm9wPTAuOCwgcmVwbGFjZSA9IEYpICMgMjAlIG9mIHRoZSBkYXRhIGZvciB0cmFpbmluZwogIHRlc3QgPC0gcmV0ZW50aW9uICU+JSAKICAgIGFudGlfam9pbih0cmFpbiwgYnkgPSAicGd1aWQiKSAjIHRoZSByZXN0IGZvciB0ZXN0aW5nCgogICMgcHJlcGFyZSBkYXRhc2V0IGluIGdsbW5ldCBmb3JtYXQsIGFuZCBmb3IgZWFjaCB0cmFpbiBhbmQgdGVzdCBzZXRzCiAgb3V0Y29tZV90cmFpbiA8LSB0cmFpbiRtaXNzZWQgJT4lIAogICAgZGF0YS5tYXRyaXgoKQogIG91dGNvbWVfdGVzdCA8LSB0ZXN0JG1pc3NlZCAlPiUKICAgIGRhdGEubWF0cml4KCkKCiAgcHJlZGljdG9yc190cmFpbiA8LSB0cmFpbiAlPiUKICAgICBzZWxlY3QoaW5jb21lX2hvdXNlaG9sZCwgc2l0ZSwgCiAgICAgICAgICAgcmFjZV9ldGhuaWNpdHksIGVkdWNhdGlvbikgJT4lCiAgICBkYXRhLm1hdHJpeCgpCgogIHByZWRpY3RvcnNfdGVzdCA8LSB0ZXN0ICU+JQogICAgIHNlbGVjdChpbmNvbWVfaG91c2Vob2xkLCBzaXRlLCAKICAgICAgICAgICByYWNlX2V0aG5pY2l0eSwgZWR1Y2F0aW9uKSAlPiUKICAgIGRhdGEubWF0cml4KCkKCiAgY3ZfbW9kZWwgPSBjdi5nbG1uZXQocHJlZGljdG9yc190cmFpbiwgb3V0Y29tZV90cmFpbiwgIyB0aGUgZm9ybXVsYQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmZvbGRzID0gbl9mb2xkcywgIyB0aGUgbnVtYmVyIG9mIGZvbGRzIGluIGNyb3NzIHZhbGlkYXRpb24KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZhbWlseSA9ICJiaW5vbWlhbCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwYXJhbGxlbCA9IFQpIAoKICAjIGJlc3QgbGFtYmRhCiAgYmVzdF9sYW1iZGEgPC0gY3ZfbW9kZWwkbGFtYmRhLjFzZQoKICBmaXQgPSBnbG1uZXQocHJlZGljdG9yc190ZXN0LCBvdXRjb21lX3Rlc3QsICMgdGhlIGZvcm11bGEKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFscGhhID0gMSwgIyBmb3IgbGFzc28KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGUubWVhc3VyZSA9ICJtc2UiLCAjIHlvdXIgZXJyb3IgbWVhc3VyZSwgaGVyZSBtZWFuIHNxdWFyZWQgZXJyb3IKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGxhbWJkYSA9IGJlc3RfbGFtYmRhLCAjIHRoZSBiZXN0IGxhbWJkYQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZmFtaWx5ID0gImJpbm9taWFsIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBhcmFsbGVsID0gVCwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICMgdHlwZS5tdWx0aW5vbWlhbCA9ICJncm91cGVkIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGludGVyY2VwdCA9IEZBTFNFKSAjIGNhbGN1bGF0ZSBhbiBpbnRlcmNlcHQgeS9uCgogICMgZXh0cmFjdCB0aGUgY29lZmZpY2llbnRzCiAgdmFyX2ltcCA8LSBjb2VmKGZpdCwgcyA9IGZpdCRsYW1iZGEuMXNlKSAlPiUgCiAgICBhcy5tYXRyaXgoKSAlPiUgCiAgICBhcy5kYXRhLmZyYW1lKCkgJT4lIAogICAgcm93bmFtZXNfdG9fY29sdW1uKCJGYWN0b3IiKSAlPiUgCiAgICByZW5hbWUoIkltcG9ydGFuY2UiID0gInMwIikKICAKICAjIGV4dHJhY3QgdGhlIFJNU0UgYW5kIGxhbWJkYSBib290c3RyYXBwZWQgbWVhc3VyZW1lbnRzCiAgUk1TRSA8LSBjdl9tb2RlbCRjdm1bY3ZfbW9kZWwkbGFtYmRhID09IGN2X21vZGVsJGxhbWJkYS4xc2VdICU+JSBzcXJ0KCkgJT4lIHJvdW5kKDIpCiAgbGFtYmRhIDwtIGN2X21vZGVsJGxhbWJkYS4xc2UgJT4lIHJvdW5kKDIpCiAgCiAgaWYoaSA9PSAxKXsKICAgIGxhbWJkYV92YWx1ZXMgPC0gbGFtYmRhCiAgICBSTVNFX3ZhbHVlcyA8LSBSTVNFCiAgICB2YXJfaW1wX2F2ZyA8LSB2YXJfaW1wCiAgfSBlbHNlewogICAgdmFyX2ltcF9hdmcgPC0gbGVmdF9qb2luKHZhcl9pbXBfYXZnLCB2YXJfaW1wLCBieSA9IGMoIkZhY3RvciIpKQogICAgbGFtYmRhX3ZhbHVlcyA8LSBsYW1iZGFfdmFsdWVzICU+JSBhcHBlbmQobGFtYmRhKQogICAgUk1TRV92YWx1ZXMgPC0gUk1TRV92YWx1ZXMgJT4lIGFwcGVuZChSTVNFKQogIH0KfQoKdXBwZXIgPSBjKCkKbG93ZXIgPSBjKCkKCmZvciAocm93IGluIHNlcV9sZW4obnJvdyh2YXJfaW1wX2F2ZykpKXsKICB1cHBlcltyb3ddID0gc29ydCh2YXJfaW1wX2F2Z1tyb3csXSlbcm91bmQoaXRlcmF0aW9ucyowLjk3NSwwKV0gIyA5Ny41dGgKICBsb3dlcltyb3ddID0gc29ydCh2YXJfaW1wX2F2Z1tyb3csXSlbcm91bmQoaXRlcmF0aW9ucyowLjI1LDApXSAjIDI1dGgKfQoKCiMgZ2V0IHRoZSBmaXJzdCBjb2x1bW4gYXMgcm93bmFtZXMKdmFyX2ltcF9hdmcgPC0gY29sdW1uX3RvX3Jvd25hbWVzKHZhcl9pbXBfYXZnLCB2YXIgPSAiRmFjdG9yIikKIyBub3cgY3JlYXRlIGEgbWVhbiBwZXIgcm93Ogp2YXJfaW1wX2F2ZyA8LSByb3dNZWFucyh2YXJfaW1wX2F2ZykKIyBmb3JtYXQgYXMgZGF0YWZyYW1lCnZhcl9pbXBfYXZnIDwtIGFzLmRhdGEuZnJhbWUodmFyX2ltcF9hdmcpCiMgZ2V0IHJvd25hbWVzIGJhY2sgYXMgY29sdW1uCnZhcl9pbXBfYXZnIDwtIHJvd25hbWVzX3RvX2NvbHVtbih2YXJfaW1wX2F2ZywgdmFyID0gIkZhY3RvciIpCiMgcmVuYW1lIHRoZSBJbXBvcnRhbmNlIGNvbHVtbgp2YXJfaW1wX2F2ZyA8LSB2YXJfaW1wX2F2ZyAlPiUKICByZW5hbWUoSW1wb3J0YW5jZSA9IHZhcl9pbXBfYXZnKQoKIyByb3VuZCB0aGUgY29uZmlkZW5jZSBpbnRlcnZhbHMKdXBwZXIgPC0gdW5saXN0KHVwcGVyKSAlPiUgcm91bmQoMikKbG93ZXIgPC0gdW5saXN0KGxvd2VyKSAlPiUgcm91bmQoMikKCiMgY3JlYXRlIENJIGNvbHVtbgp2YXJfaW1wX2F2ZyQiOTUlIENJIiA8LSBwYXN0ZSgiWyIsIGxvd2VyLCAiLCAiLCB1cHBlciwgIl0iLCBzZXAgPSAiIikKCiMgZmlsdGVyIG91dCBwcmVkaWN0b3JzIHdpdGggVmFyaWFibGUgaW1wb3J0YW5jZSBncmVhdGVyIHRoYW4gemVybwp2YXJfaW1wX2F2ZyA8LSB2YXJfaW1wX2F2ZyAlPiUgIAogIGZpbHRlcihhYnMoSW1wb3J0YW5jZSkgPiAwKQoKdmFyX2ltcF9hdmcgJT4lIAogICNtdXRhdGUoSW1wb3J0YW5jZSA9IHJvdW5kKEltcG9ydGFuY2UsIDIpKSAlPiUgCiAga2FibGVFeHRyYTo6a2JsKGJvb2t0YWJzID0gVCwKICAgICAgICAgICAgICAgICAgY29sLm5hbWVzID0gYygiRmFjdG9yIiwgIm1lYW4gY29lZmYuIiwgIjk1JSBDSSIpLAogICAgICAgICAgICAgICAgICBlc2NhcGUgPSBUUlVFLAogICAgICAgICAgICAgICAgICBmb3JtYXQgPSAibWFya2Rvd24iKQoKYGBgCgp8RmFjdG9yICAgICAgICAgICB8IG1lYW4gY29lZmYufDk1JSBDSSAgICAgICAgIHwKfDotLS0tLS0tLS0tLS0tLS0tfC0tLS0tLS0tLS0tOnw6LS0tLS0tLS0tLS0tLS18CnxpbmNvbWVfaG91c2Vob2xkIHwgICAgICAtMC4wNzV8Wy0wLjA1LCAwXSAgICAgfAp8c2l0ZSAgICAgICAgICAgICB8ICAgICAgLTAuMDEwfFstMC4wMiwgMF0gICAgIHwKfHJhY2VfZXRobmljaXR5ICAgfCAgICAgIC0wLjQ4MnxbLTAuMzksIC0wLjc1XSB8CnxlZHVjYXRpb24gICAgICAgIHwgICAgICAtMC4xMTh8Wy0wLjA5LCAtMC4yXSAgfAoKCnxGYWN0b3IgICAgICAgICAgIHwgbWVhbiBjb2VmZi58OTUlIENJICAgICAgICAgfAp8Oi0tLS0tLS0tLS0tLS0tLS18LS0tLS0tLS0tLS06fDotLS0tLS0tLS0tLS0tLXwKfGluY29tZV9ob3VzZWhvbGQgfCAgICAgIC0wLjA4NHxbLTAuMDUsIDBdICAgICB8CnxzaXRlICAgICAgICAgICAgIHwgICAgICAtMC4wMDl8Wy0wLjAyLCAwXSAgICAgfAp8cmFjZV9ldGhuaWNpdHkgICB8ICAgICAgLTAuNDgwfFstMC4zOSwgLTAuNzRdIHwKfGVkdWNhdGlvbiAgICAgICAgfCAgICAgIC0wLjExOXxbLTAuMDksIC0wLjE5XSB8CgoKfEZhY3RvciAgICAgICAgICAgfCBtZWFuIGNvZWZmLnw5NSUgQ0kgICAgICAgICB8Cnw6LS0tLS0tLS0tLS0tLS0tLXwtLS0tLS0tLS0tLTp8Oi0tLS0tLS0tLS0tLS0tfAp8aW5jb21lX2hvdXNlaG9sZCB8ICAgICAgLTAuMDY5fFstMC4wNSwgLTAuMTVdIHwKfHNpdGUgICAgICAgICAgICAgfCAgICAgIC0wLjAwNHxbLTAuMDEsIDBdICAgICB8CnxyYWNlX2V0aG5pY2l0eSAgIHwgICAgICAtMC40MDB8Wy0wLjM2LCAtMC41NF0gfAp8ZWR1Y2F0aW9uICAgICAgICB8ICAgICAgLTAuMTE5fFstMC4xMSwgLTAuMTRdIHwKCnxGYWN0b3IgICAgICAgICAgIHwgbWVhbiBjb2VmZi58OTUlIENJICAgICAgICAgfAp8Oi0tLS0tLS0tLS0tLS0tLS18LS0tLS0tLS0tLS06fDotLS0tLS0tLS0tLS0tLXwKfGluY29tZV9ob3VzZWhvbGQgfCAgICAgIC0wLjA2NXxbLTAuMDUsIC0wLjFdICB8CnxzaXRlICAgICAgICAgICAgIHwgICAgICAtMC4wMDF8Wy0wLjAxLCAwXSAgICAgfAp8cmFjZV9ldGhuaWNpdHkgICB8ICAgICAgLTAuMzg2fFstMC4zNywgLTAuNDNdIHwKfGVkdWNhdGlvbiAgICAgICAgfCAgICAgIC0wLjExMnxbLTAuMTEsIC0wLjEzXSB8Cgp8RmFjdG9yICAgICAgICAgICB8IG1lYW4gY29lZmYufDk1JSBDSSAgICAgICAgIHwKfDotLS0tLS0tLS0tLS0tLS0tfC0tLS0tLS0tLS0tOnw6LS0tLS0tLS0tLS0tLS18CnxpbmNvbWVfaG91c2Vob2xkIHwgICAgICAtMC4wNjB8Wy0wLjA1LCAtMC4wOV0gfAp8c2l0ZSAgICAgICAgICAgICB8ICAgICAgLTAuMDAxfFswLCAwXSAgICAgICAgIHwKfHJhY2VfZXRobmljaXR5ICAgfCAgICAgIC0wLjM4NHxbLTAuMzcsIC0wLjQzXSB8CnxlZHVjYXRpb24gICAgICAgIHwgICAgICAtMC4xMTJ8Wy0wLjExLCAtMC4xMl0gfAoKfEZhY3RvciAgICAgICAgICAgfCBtZWFuIGNvZWZmLnw5NSUgQ0kgICAgICAgICB8Cnw6LS0tLS0tLS0tLS0tLS0tLXwtLS0tLS0tLS0tLTp8Oi0tLS0tLS0tLS0tLS0tfAp8aW5jb21lX2hvdXNlaG9sZCB8ICAgICAgLTAuMDY0fFstMC4wNSwgLTAuMDldIHwKfHNpdGUgICAgICAgICAgICAgfCAgICAgIC0wLjAwMXxbMCwgMF0gICAgICAgICB8CnxyYWNlX2V0aG5pY2l0eSAgIHwgICAgICAtMC4zODZ8Wy0wLjM3LCAtMC40Ml0gfAp8ZWR1Y2F0aW9uICAgICAgICB8ICAgICAgLTAuMTExfFstMC4xMSwgLTAuMTJdIHwKCnxGYWN0b3IgICAgICAgICAgIHwgbWVhbiBjb2VmZi58OTUlIENJICAgICAgICAgfAp8Oi0tLS0tLS0tLS0tLS0tLS18LS0tLS0tLS0tLS06fDotLS0tLS0tLS0tLS0tLXwKfGluY29tZV9ob3VzZWhvbGQgfCAgICAgIC0wLjAxM3xbLTAuMDEsIDBdICAgICB8CnxyYWNlX2V0aG5pY2l0eSAgIHwgICAgICAtMC4zMTd8Wy0wLjMsIC0wLjM2XSAgfAp8ZWR1Y2F0aW9uICAgICAgICB8ICAgICAgLTAuMTI4fFstMC4xMywgLTAuMTRdIHwgCgoKCiMgQmFzaWMgZGVzY3JpcHRpdmUgY2hhcmFjdGVyaXN0aWNzCgojIyBEaXN0cmlidXRpb24gb2YgYWdlIGJ5IHNleAoKCkNvdWxkbid0IGZpbmQgdGhlIHZhcmlhYmxlIHdpdGggc2V4IGluIHRoaXMgc2V0CgpgYGB7ciBhZ2UtYnktc2V4LCBlY2hvID0gVH0KZGF0YUluZGl2X0lEXzIwMjMuMDMuMDggJT4lCiAgZ2dwbG90KGFlcyhhcy5udW1lcmljKGludGVydmlld19hZ2UpLCBmaWxsID0ga2Jpc2dtX2Fzc2lnbmVkX3NleF82eXIpKSArCiAgZ2VvbV9kZW5zaXR5KGFscGhhID0gLjMpICsKICBsYWJzKAogICAgdGl0bGUgPSAiQWdlIE1hbGUgeCBGZW1hbGUiLCB4ID0gIkFnZSIsCiAgICB5ID0gIkRlbnNpdHkiCiAgKSArCiAgdGhlbWVfbHVpcygpCmBgYAoKCgpgYGB7cn0KYGBgCgoKIyBTeXN0ZW0gaW5mb3JtYXRpb24KCmBgYHtyfQpwcm9qZWN0LmluZm8KYGBgCgpgYGB7cn0Kc2Vzc2lvbkluZm8oKQpgYGAKCiMgUmVmZXJlbmNlcwo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW5zcGVjdGluZyBkYXRhIGFuZCBpbml0aWFsIG1vZGVsaW5nIGF0dGVtcHRzIgpzdWJ0aXRsZTogIkFCQ0QgcmV0ZW50aW9uIFdHIgphdXRob3I6ICJMdWlzIENhc3Ryby1kZS1BcmF1am8gXltQb3N0LWRvYyBUMzIuIGx1aXMuYXJhdWpvQHZjdWhlYWx0aC5vcmcgIFxuXSIKZGF0ZTogImByIGZvcm1hdChTeXMudGltZSgpLCAnJWQgJUIsICVZJyApYCIKaW5zdGl0dXRlOiBWaXJnaW5pYSBJbnN0aXR1dGUgZm9yIFBzeWNoaWF0cmljIGFuZCBCZWhhdmlvcmFsIEdlbmV0aWNzIApsYW5nOiBlbgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgaGlnaGxpZ2h0OiB6ZW5idXJuCiAgICB0aGVtZTogZmxhdGx5CiAgICB0b2M6IHllcwogICAgZGZfcHJpbnQ6IHBhZ2VkICAgIAogICAgdG9jX2Zsb2F0OiB5ZXMKICAgIGNvZGVfZG93bmxvYWRpbmc6IHllcwotLS0KCgpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0KCmMoICMgSSB1c2UgbGludXgsIHRoaXMgc2F2ZXMgbXkgdGltZSBsb2FkaW5nL2luc3RhbGxpbmcgcGFja2FnZXMKICAiUHJvamVjdFRlbXBsYXRlIiwgImhlcmUiLCAic3RyaW5nciIsCiAgImRwbHlyIiwgImtuaXRyIiwgImdncGxvdDIiLCAidGFicGxvdCIsCiAgInBhdGNod29yayIsICJ0YWJsZW9uZSIsICJ0aWR5ciIsICJ2aXNkYXQiLCAiZ2xtbmV0IiwKICAiZG9QYXJhbGxlbCIsICJrYWJsZUV4dHJhIgopIHw+CiAgbGFwcGx5KGZ1bmN0aW9uKHgpIHsKICAgIGlmICghcmVxdWlyZSh4LCBjaGFyYWN0ZXIub25seSA9IFRSVUUpKSB7CiAgICAgIGluc3RhbGwucGFja2FnZXMoeCwgZGVwZW5kZW5jaWVzID0gVFJVRSkKICAgICAgbGlicmFyeSh4KQogICAgfQogIH0pCgpzZXQuc2VlZCg0MikgIyBzZXR0aW5nIHNlZWQgZm9yIHN0b2NoYXN0aWMgZnVuY3Rpb25zCnNldHdkKCIuLiIpICMgaGVyZSgpKSAjIG5lZWRlZCBhcyB3ZSBhcmUgaW4gL3NyYywgaW4gbGludXggaGVyZSgpIHNob3VsZCBiZSB1c2VkCgpsb2FkLnByb2plY3QoKSAjIExvYWRpbmcgdGhlIHByb2plY3QKcGNsZWFuKCkKCiMgUiBvcHRpb25zCm9wdGlvbnMoCiAgZGlnaXRzID0gMywgIyBPbmx5IHR3byBkZWNpbWFsIGRpZ2l0cwogIHNjaXBlbiA9IDk5OSwgIyBSZW1vdmUgc2NpZW50aWZpYyBub3RhdGlvbgogIHdpZHRoID0gMTAwCikKCgojIEtuaXRyIG9wdGlvbnMKa25pdHI6Om9wdHNfY2h1bmskc2V0KAogIGNvbW1lbnQgPSBOQSwgIyByZW1vdmUgY29tbWVudCBzeW1ib2wKICBjYWNoZS5wYXRoID0gIi4uL2NhY2hlLyIsICMgd2hlcmUgc2hvdWxkIEkgc2F2ZSBjYWNoZT8KICBmaWcucGF0aCA9ICIuLi9ncmFwaHMvIiwgIyB3aGVyZSBzaG91bGQgSSBzYXZlIGZpZ3VyZXM/CiAgZWNobyA9IFQsICMgZG9udCBlY2hvIGJ5IGRlZmF1bHQKICBjYWNoZSA9IEYsICMgZG9udCBjYWNoZSBieSBkZWZhdWx0CiAgZmlnLndpZHRoID0gMTAsICMgc2V0dGluZyB0aGUgYmVzdCB3aXRkdGggZm9yIGZpZ3VyZXMKICBmaWcuaGVpZ2h0ID0gNywgIyBiZXN0IGhlaWdodAogIGRwaSA9IDMwMCwgIyBoaWdoIGRwaSBmb3IgcHVibGljYXRpb24gcXVhbGl0eSwKICBlcnJvciA9IEZBTFNFICMgZG8gbm90IGludGVycnVwdCBpbiBjYXNlIG9mIGVycm9ycwopCgoKY2JfcGFsZXR0ZSA8LSBjKAogICIjOTk5OTk5IiwgIiNFNjlGMDAiLCAiIzU2QjRFOSIsICIjMDA5RTczIiwKICAiI0YwRTQ0MiIsICIjMDA3MkIyIiwgIiNENTVFMDAiLCAiI0NDNzlBNyIKKQoKdGhlbWVfbHVpcyA8LSBmdW5jdGlvbigpIHsKICByZXR1cm5fdGhlbWUgPC0gZ2dwbG90Mjo6dGhlbWVfYncoMTIpICsKICAgIGdncGxvdDI6OnRoZW1lKAogICAgICBwYW5lbC5ib3JkZXIgPSBlbGVtZW50X3JlY3QoY29sb3VyID0gImJsYWNrIiksCiAgICAgIGxlZ2VuZC5iYWNrZ3JvdW5kID0gZWxlbWVudF9yZWN0KGxpbmV0eXBlID0gMSwgc2l6ZSA9IDAuMiwgY29sb3VyID0gMSkKICAgICkKfQoKIyByZWdpc3RlciBwYXJhbGxlbCBiYWNrZW5kCmNsIDwtIG1ha2VDbHVzdGVyKGRldGVjdENvcmVzKCksIG91dGZpbGUgPSAiIikKcmVnaXN0ZXJEb1BhcmFsbGVsKGNsKQpgYGAKCgpgYGB7ciBtdW5nZX0KCnJldGVudGlvbiAgPC0gcmVhZC5jc3YoIn4vRG93bmxvYWRzL2RhdGFJbmRpdl9JRF8yMDIzLTAzLTA4LmNzdiIpICU+JQogIGZpbHRlcihldmVudCA9PSAiQmFzZWxpbmUiIHwgZXZlbnQgPT0gIjEgWWVhciIpICU+JQogIHNlbGVjdChwZ3VpZCwgZXZlbnQsIHZpc2l0X3N0YXR1c19hZ2dyLCBpbmNvbWVfaG91c2Vob2xkLCBzaXRlLCByYWNlX2V0aG5pY2l0eSwgZWR1Y2F0aW9uKSAlPiUKICBtdXRhdGUobWlzc2VkID0gaWZlbHNlKHZpc2l0X3N0YXR1c19hZ2dyID09ICJNaXNzZWQgKGV4cGxhaW5lZCkiIHwKICAgICAgICAgICAgICAgIHZpc2l0X3N0YXR1c19hZ2dyID09ICJNaXNzZWQgKHVuZXhwbGFpbmVkKSIsIDEsIDApKQoKIyBiZWxvdyBpcyBhIHZlcnNpb24gd2l0aCB3aWRlIGZvcm1hdCwgd2hpY2ggaXMgdGhlIGNvcnJlY3Qgd2F5LCBidXQgdGhlcmUgaXMgYW4gb2RkaXR5IGluCiMgdGhlIGRhdGEgdGhhdCB0aGUgdmFsdWVzIGZvciBzb21lIGRlbW9ncmFwaGljIGluZm8gb25seSBhcHBlYXIgYXQgdGhlIGZvbGxvdyB1cCwgbm90IGF0IHRoZSBiYXNlbGluZQojIHNvIEkgc3VwcG9zZSB0aGUgZGF0YSB3YXMgam9pbmVkIGluY29ycmVjdGx5LgoKIyByZXRlbnRpb25fd2lkZSA8LSBkYXRhSW5kaXZfSURfMjAyMy4wMy4wOCAlPiUKIyAgIHNlbGVjdChwZ3VpZCwgZXZlbnQsIHZpc2l0X3N0YXR1c19hZ2dyLCBpbmNvbWVfaG91c2Vob2xkLCBzaXRlLCByYWNlX2V0aG5pY2l0eSwgZWR1Y2F0aW9uKSAlPiUKIyAgIGdyb3VwX2J5KHBndWlkKSAlPiUKIyAgIGZpbHRlcihldmVudCA9PSAiQmFzZWxpbmUiIHwgZXZlbnQgPT0gIjEgWWVhciIpICU+JQojICAgbXV0YXRlKG1pc3NlZCA9IGlmZWxzZSh2aXNpdF9zdGF0dXNfYWdnciA9PSAiTWlzc2VkIChleHBsYWluZWQpIiB8CiMgICAgICAgICAgICAgICAgIHZpc2l0X3N0YXR1c19hZ2dyID09ICJNaXNzZWQgKHVuZXhwbGFpbmVkKSIsIDEsIDApKSAlPiUKIyAgIHBpdm90X3dpZGVyKG5hbWVzX2Zyb20gPSBldmVudCwgdmFsdWVzX2Zyb20gPSBjKG1pc3NlZCwgaW5jb21lX2hvdXNlaG9sZCwgc2l0ZSwgcmFjZV9ldGhuaWNpdHksIGVkdWNhdGlvbikpICU+JQojICAgbXV0YXRlKGBtaXNzZWRfMSBZZWFyYCA9IGlmZWxzZShpcy5uYShgbWlzc2VkXzEgWWVhcmApLCAwLCBgbWlzc2VkXzEgWWVhcmApKQoKCiMgcmV0ZW50aW9uICU+JSAKIyAgIGdyb3VwX2J5KGV2ZW50KSAlPiUgCiMgICBzdW1tYXJpc2UobiA9IG4oKSwgCiMgICAgICAgICAgICAgbl9taXNzZWQgPSBzdW0obWlzc2VkX3Zpc2l0XzF5KSwgCiMgICAgICAgICAgICAgcGVyY19taXNzZWQgPSByb3VuZChuX21pc3NlZC9uLCAyKSkgfD4KIyAgIGthYmxlKGFsaWduID0gImMiLCBjYXB0aW9uID0gIk51bWJlciBvZiBwYXJ0aWNpcGFudHMgYW5kIHBlcmNlbnRhZ2Ugb2YgbWlzc2VkIHZpc2l0cyBieSBldmVudCIpIHw+CiMgICBrYWJsZV9zdHlsaW5nKCkKIyAjIEFib3V0IDUlIG9mIHBhcnRpY2lwYW50cyBtaXNzZWQgdGhlaXIgMSB5ZWFyIHZpc2l0CgpgYGAKCiMgTW9kZWxpbmcKCiMjIEluaXRpYWwgbW9kZWwKCmBgYHtyfQoKbl9mb2xkcyA9IDEwICMgdGhlIG51bWJlciBvZiBmb2xkcyBmb3IgY3Jvc3MgdmFsaWRhdGlvbgp2YXJfaW1wX2F2ZyA9IHRpYmJsZSgpICMgcHJlcGFyZSB0aGUgb3V0cHV0IGRhdGFmcmFtZSAvIHRpYmJsZQppdGVyYXRpb25zID0gMTAwICMgbnVtYmVyIG9mIGJvb3RzdHJhcCBzYW1wbGVzCgojIHByZXBhcmUgZGF0YXNldCBpbiBhIGdsbW5ldCBmb3JtYXQ6Cm91dGNvbWUgPC0gcmV0ZW50aW9uJG1pc3NlZCAlPiUgCiAgZGF0YS5tYXRyaXgoKSAKCnByZWRpY3RvcnMgPC0gcmV0ZW50aW9uICU+JQogIHNlbGVjdChpbmNvbWVfaG91c2Vob2xkLCBzaXRlLCAKICAgICAgICAgcmFjZV9ldGhuaWNpdHksIGVkdWNhdGlvbikgJT4lCiAgZGF0YS5tYXRyaXgoKQoKZm9yIChpIGluIDE6aXRlcmF0aW9ucykgewogIAogICMgcHJlZGljdGl2ZSBtb2RlbDoKICBjdl9tb2RlbCA9IGdsbW5ldDo6Y3YuZ2xtbmV0KHByZWRpY3RvcnMsIG91dGNvbWUsICMgdGhlIGZvcm11bGEKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFscGhhID0gMSwgIyBmb3IgbGFzc28KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGUubWVhc3VyZSA9ICJtc2UiLCAjIHlvdXIgZXJyb3IgbWVhc3VyZSwgaGVyZSBtZWFuIHNxdWFyZWQgZXJyb3IKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5mb2xkcyA9IG5fZm9sZHMsICMgdGhlIG51bWJlciBvZiBmb2xkcyBpbiBjcm9zcyB2YWxpZGF0aW9uCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmYW1pbHkgPSAiYmlub21pYWwiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGFyYWxsZWwgPSBULAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZS5tdWx0aW5vbWlhbCA9ICJncm91cGVkIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGludGVyY2VwdCA9IEZBTFNFKSAjIGNhbGN1bGF0ZSBhbiBpbnRlcmNlcHQgeS9uCgogICMgZXh0cmFjdCB0aGUgY29lZmZpY2llbnRzCiAgdmFyX2ltcCA8LSBjb2VmKGN2X21vZGVsLCBzID0gY3ZfbW9kZWwkbGFtYmRhLjFzZSkgJT4lIAogICAgYXMubWF0cml4KCkgJT4lIAogICAgYXMuZGF0YS5mcmFtZSgpICU+JSAKICAgIHJvd25hbWVzX3RvX2NvbHVtbigiRmFjdG9yIikgJT4lIAogICAgcmVuYW1lKCJJbXBvcnRhbmNlIiA9ICJzMSIpCiAgCiAgIyBleHRyYWN0IHRoZSBSTVNFIGFuZCBsYW1iZGEgYm9vdHN0cmFwcGVkIG1lYXN1cmVtZW50cwogIFJNU0UgPC0gY3ZfbW9kZWwkY3ZtW2N2X21vZGVsJGxhbWJkYSA9PSBjdl9tb2RlbCRsYW1iZGEuMXNlXSAlPiUgc3FydCgpICU+JSByb3VuZCgyKQogIGxhbWJkYSA8LSBjdl9tb2RlbCRsYW1iZGEuMXNlICU+JSByb3VuZCgyKQogIAogIGlmKGkgPT0gMSl7CiAgICBsYW1iZGFfdmFsdWVzIDwtIGxhbWJkYQogICAgUk1TRV92YWx1ZXMgPC0gUk1TRQogICAgdmFyX2ltcF9hdmcgPC0gdmFyX2ltcAogIH0gZWxzZXsKICAgIHZhcl9pbXBfYXZnIDwtIGxlZnRfam9pbih2YXJfaW1wX2F2ZywgdmFyX2ltcCwgYnkgPSBjKCJGYWN0b3IiKSkKICAgIGxhbWJkYV92YWx1ZXMgPC0gbGFtYmRhX3ZhbHVlcyAlPiUgYXBwZW5kKGxhbWJkYSkKICAgIFJNU0VfdmFsdWVzIDwtIFJNU0VfdmFsdWVzICU+JSBhcHBlbmQoUk1TRSkKICB9Cn0KCnVwcGVyID0gYygpCmxvd2VyID0gYygpCgpmb3IgKHJvdyBpbiBzZXFfbGVuKG5yb3codmFyX2ltcF9hdmcpKSl7CiAgdXBwZXJbcm93XSA9IHNvcnQodmFyX2ltcF9hdmdbcm93LF0pW3JvdW5kKGl0ZXJhdGlvbnMqMC45NzUsMCldICMgOTcuNXRoCiAgbG93ZXJbcm93XSA9IHNvcnQodmFyX2ltcF9hdmdbcm93LF0pW3JvdW5kKGl0ZXJhdGlvbnMqMC4yNSwwKV0gIyAyNXRoCn0KCgojIGdldCB0aGUgZmlyc3QgY29sdW1uIGFzIHJvd25hbWVzCnZhcl9pbXBfYXZnIDwtIGNvbHVtbl90b19yb3duYW1lcyh2YXJfaW1wX2F2ZywgdmFyID0gIkZhY3RvciIpCiMgbm93IGNyZWF0ZSBhIG1lYW4gcGVyIHJvdzoKdmFyX2ltcF9hdmcgPC0gcm93TWVhbnModmFyX2ltcF9hdmcpCiMgZm9ybWF0IGFzIGRhdGFmcmFtZQp2YXJfaW1wX2F2ZyA8LSBhcy5kYXRhLmZyYW1lKHZhcl9pbXBfYXZnKQojIGdldCByb3duYW1lcyBiYWNrIGFzIGNvbHVtbgp2YXJfaW1wX2F2ZyA8LSByb3duYW1lc190b19jb2x1bW4odmFyX2ltcF9hdmcsIHZhciA9ICJGYWN0b3IiKQojIHJlbmFtZSB0aGUgSW1wb3J0YW5jZSBjb2x1bW4KdmFyX2ltcF9hdmcgPC0gdmFyX2ltcF9hdmcgJT4lCiAgcmVuYW1lKEltcG9ydGFuY2UgPSB2YXJfaW1wX2F2ZykKCiMgcm91bmQgdGhlIGNvbmZpZGVuY2UgaW50ZXJ2YWxzCnVwcGVyIDwtIHVubGlzdCh1cHBlcikgJT4lIHJvdW5kKDIpCmxvd2VyIDwtIHVubGlzdChsb3dlcikgJT4lIHJvdW5kKDIpCgojIGNyZWF0ZSBDSSBjb2x1bW4KdmFyX2ltcF9hdmckIjk1JSBDSSIgPC0gcGFzdGUoIlsiLCBsb3dlciwgIiwgIiwgdXBwZXIsICJdIiwgc2VwID0gIiIpCgojIGZpbHRlciBvdXQgcHJlZGljdG9ycyB3aXRoIFZhcmlhYmxlIGltcG9ydGFuY2UgZ3JlYXRlciB0aGFuIHplcm8KdmFyX2ltcF9hdmcgPC0gdmFyX2ltcF9hdmcgJT4lICAKICBmaWx0ZXIoYWJzKEltcG9ydGFuY2UpID4gMCkKCnZhcl9pbXBfYXZnICU+JSAKICAjbXV0YXRlKEltcG9ydGFuY2UgPSByb3VuZChJbXBvcnRhbmNlLCAyKSkgJT4lIAogIGthYmxlRXh0cmE6OmtibChib29rdGFicyA9IFQsCiAgICAgICAgICAgICAgICAgIGNvbC5uYW1lcyA9IGMoIkZhY3RvciIsICJtZWFuIGNvZWZmLiIsICI5NSUgQ0kiKSwKICAgICAgICAgICAgICAgICAgZXNjYXBlID0gVFJVRSwKICAgICAgICAgICAgICAgICAgZm9ybWF0ID0gIm1hcmtkb3duIikKCmBgYAoKCgp8RmFjdG9yICAgICAgICAgICB8IG1lYW4gY29lZmYufDk1JSBDSSAgICAgICAgIHwKfDotLS0tLS0tLS0tLS0tLS0tfC0tLS0tLS0tLS0tOnw6LS0tLS0tLS0tLS0tLS18CnxpbmNvbWVfaG91c2Vob2xkIHwgICAgICAtMC4wMTN8Wy0wLjAxLCAwXSAgICAgfAp8cmFjZV9ldGhuaWNpdHkgICB8ICAgICAgLTAuMzE3fFstMC4zLCAtMC4zNl0gIHwKfGVkdWNhdGlvbiAgICAgICAgfCAgICAgIC0wLjEyOHxbLTAuMTMsIC0wLjE0XSB8IAoKIyBCYXNpYyBkZXNjcmlwdGl2ZSBjaGFyYWN0ZXJpc3RpY3MKCiMjIERpc3RyaWJ1dGlvbiBvZiBhZ2UgYnkgc2V4CgoKQ291bGRuJ3QgZmluZCB0aGUgdmFyaWFibGUgd2l0aCBzZXggaW4gdGhpcyBzZXQKCmBgYHtyIGFnZS1ieS1zZXgsIGVjaG8gPSBUfQpkYXRhSW5kaXZfSURfMjAyMy4wMy4wOCAlPiUKICBnZ3Bsb3QoYWVzKGFzLm51bWVyaWMoaW50ZXJ2aWV3X2FnZSksIGZpbGwgPSBrYmlzZ21fYXNzaWduZWRfc2V4XzZ5cikpICsKICBnZW9tX2RlbnNpdHkoYWxwaGEgPSAuMykgKwogIGxhYnMoCiAgICB0aXRsZSA9ICJBZ2UgTWFsZSB4IEZlbWFsZSIsIHggPSAiQWdlIiwKICAgIHkgPSAiRGVuc2l0eSIKICApICsKICB0aGVtZV9sdWlzKCkKYGBgCgoKCmBgYHtyfQpgYGAKCgojIFN5c3RlbSBpbmZvcm1hdGlvbgoKYGBge3J9CnByb2plY3QuaW5mbwpgYGAKCmBgYHtyfQpzZXNzaW9uSW5mbygpCmBgYAoKIyBSZWZlcmVuY2VzCg==</div>
 
 
 </div>

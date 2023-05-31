@@ -23,7 +23,7 @@ c( # I use linux, this saves my time loading/installing packages
   "ProjectTemplate", "here", "stringr",
   "dplyr", "knitr", "ggplot2", "tabplot",
   "patchwork", "tableone", "tidyr", "visdat", "glmnet",
-  "doParallel", "kableExtra"
+  "doParallel", "kableExtra", "dtplyr"
 ) |>
   lapply(function(x) {
     if (!require(x, character.only = TRUE)) {
@@ -85,7 +85,8 @@ retention  <- read.csv("~/Downloads/dataIndiv_ID_2023-03-08.csv") %>%
   filter(event == "Baseline" | event == "1 Year") %>%
   select(pguid, event, visit_status_aggr, income_household, site, race_ethnicity, education) %>%
   mutate(missed = ifelse(visit_status_aggr == "Missed (explained)" |
-                visit_status_aggr == "Missed (unexplained)", 1, 0))
+                visit_status_aggr == "Missed (unexplained)", 1, 0),
+  site = as.factor(site))
 
 # below is a version with wide format, which is the correct way, but there is an oddity in
 # the data that the values for some demographic info only appear at the follow up, not at the baseline
@@ -113,8 +114,137 @@ retention  <- read.csv("~/Downloads/dataIndiv_ID_2023-03-08.csv") %>%
 ```
 
 # Modeling
+# Leave-one-out cross validation and coeff
 
-## Initial model
+
+The typical subsetting between test and training return less stable coeffs. Hence, trying LOOCV, which returned more stable results.
+
+- Next step will be to unpack the levels of these ordinal vars. Currently they seem to point to the wrong direction (negative effect on missing a visit).
+
+```{r}
+
+
+# Set the number of iterations
+iterations <- 21  # Assuming there are 21 unique sites
+
+# Initialize empty vectors for storing results
+lambda_values <- c()
+RMSE_values <- c()
+var_imp_avg <- NULL
+
+# Iterate over the sites
+for (isite in unique(retention$site)) {
+  # Split retention into train and test
+  train <- retention %>%
+    filter(site != isite)  # Leave out the current site
+
+  test <- retention %>%
+    filter(site == isite)  # Use only the current site
+
+  # Prepare dataset in glmnet format for train and test sets
+  outcome_train <- data.matrix(train$missed)
+  outcome_test <- data.matrix(test$missed)
+
+  predictors_train <- train %>%
+    select(income_household,  race_ethnicity, education) %>%
+    data.matrix()
+
+  predictors_test <- test %>%
+    select(income_household,  race_ethnicity, education) %>%
+    data.matrix()
+
+  message("Site: ", isite)
+
+  # Perform cross-validated glmnet model fitting
+  cv_model <- cv.glmnet(predictors_train, outcome_train,
+                        nfolds = 10,  # Use LOOCV
+                family = "binomial",
+  parallel =T)
+
+  # Get the best lambda
+  best_lambda <- cv_model$lambda.1se
+
+  # Fit the model using the best lambda on the test set
+  fit <- glmnet(predictors_test, outcome_test,
+                alpha = 1,
+                type.measure = "mse",
+                lambda = best_lambda,
+                family = "binomial",
+                intercept = FALSE)
+
+  # Extract the coefficients
+  var_imp <- coef(fit, s = fit$lambda.1se) %>%
+    as.matrix() %>%
+    as.data.frame() %>%
+    rownames_to_column("Factor") %>%
+    rename("Importance" = "s0")
+
+  # Store the results
+  RMSE <- cv_model$cvm[cv_model$lambda == cv_model$lambda.1se] %>% sqrt() %>% round(2)
+  lambda <- cv_model$lambda.1se %>% round(2)
+
+  if (is.null(var_imp_avg)) {
+    var_imp_avg <- var_imp
+  } else {
+    var_imp_avg <- left_join(var_imp_avg, var_imp, by = c("Factor"))
+    lambda_values <- lambda_values %>% append(lambda)
+    RMSE_values <- RMSE_values %>% append(RMSE)
+  }
+}
+
+
+upper = c()
+lower = c()
+
+for (row in seq_len(nrow(var_imp_avg))){
+  upper[row] = sort(var_imp_avg[row,])[round(iterations*0.975,0)] # 97.5th
+  lower[row] = sort(var_imp_avg[row,])[round(iterations*0.25,0)] # 25th
+}
+
+
+
+# get the first column as rownames
+var_imp_avg <- column_to_rownames(var_imp_avg, var = "Factor")
+# now create a mean per row:
+var_imp_avg <- rowMeans(var_imp_avg)
+# format as dataframe
+var_imp_avg <- as.data.frame(var_imp_avg)
+# get rownames back as column
+var_imp_avg <- rownames_to_column(var_imp_avg, var = "Factor")
+# rename the Importance column
+var_imp_avg <- var_imp_avg %>%
+  rename(Importance = var_imp_avg)
+
+# round the confidence intervals
+upper <- unlist(upper) %>% round(2)
+lower <- unlist(lower) %>% round(2)
+
+# create CI column
+var_imp_avg$"95% CI" <- paste("[", lower, ", ", upper, "]", sep = "")
+
+# filter out predictors with Variable importance greater than zero
+var_imp_avg <- var_imp_avg %>%  
+  filter(abs(Importance) > 0)
+
+var_imp_avg %>% 
+  #mutate(Importance = round(Importance, 2)) %>% 
+  kableExtra::kbl(booktabs = T,
+                  col.names = c("Factor", "mean coeff.", "95% CI"),
+                  escape = TRUE,
+                  format = "markdown")
+
+
+
+```
+
+|Factor           | mean coeff.|95% CI         |
+|:----------------|-----------:|:--------------|
+|income_household |      -0.081|[-0.05, 0]     |
+|race_ethnicity   |      -0.572|[-0.38, -0.92] |
+|education        |      -0.123|[-0.09, 0]     |
+
+
+## GLMnet w lasso 
 
 ```{r}
 
@@ -122,33 +252,54 @@ n_folds = 10 # the number of folds for cross validation
 var_imp_avg = tibble() # prepare the output dataframe / tibble
 iterations = 100 # number of bootstrap samples
 
-# prepare dataset in a glmnet format:
-outcome <- retention$missed %>% 
-  data.matrix() 
-
-predictors <- retention %>%
-  select(income_household, site, 
-         race_ethnicity, education) %>%
-  data.matrix()
 
 for (i in 1:iterations) {
-  
-  # predictive model:
-  cv_model = glmnet::cv.glmnet(predictors, outcome, # the formula
-                               alpha = 1, # for lasso
-                               type.measure = "mse", # your error measure, here mean squared error
+ 
+  # split retention into train and test
+  train <- retention %>% 
+    slice_sample(prop=0.8, replace = F) # 20% of the data for training
+  test <- retention %>% 
+    anti_join(train, by = "pguid") # the rest for testing
+
+  # prepare dataset in glmnet format, and for each train and test sets
+  outcome_train <- train$missed %>% 
+    data.matrix()
+  outcome_test <- test$missed %>%
+    data.matrix()
+
+  predictors_train <- train %>%
+     select(income_household, site, 
+           race_ethnicity, education) %>%
+    data.matrix()
+
+  predictors_test <- test %>%
+     select(income_household, site, 
+           race_ethnicity, education) %>%
+    data.matrix()
+
+  cv_model = cv.glmnet(predictors_train, outcome_train, # the formula
                                nfolds = n_folds, # the number of folds in cross validation
                                family = "binomial",
+                               parallel = T) 
+
+  # best lambda
+  best_lambda <- cv_model$lambda.1se
+
+  fit = glmnet(predictors_test, outcome_test, # the formula
+                               alpha = 1, # for lasso
+                               type.measure = "mse", # your error measure, here mean squared error
+                               lambda = best_lambda, # the best lambda
+                               family = "binomial",
                                parallel = T,
-                               type.multinomial = "grouped",
+                               # type.multinomial = "grouped",
                                intercept = FALSE) # calculate an intercept y/n
 
   # extract the coefficients
-  var_imp <- coef(cv_model, s = cv_model$lambda.1se) %>% 
+  var_imp <- coef(fit, s = fit$lambda.1se) %>% 
     as.matrix() %>% 
     as.data.frame() %>% 
     rownames_to_column("Factor") %>% 
-    rename("Importance" = "s1")
+    rename("Importance" = "s0")
   
   # extract the RMSE and lambda bootstrapped measurements
   RMSE <- cv_model$cvm[cv_model$lambda == cv_model$lambda.1se] %>% sqrt() %>% round(2)
@@ -206,13 +357,57 @@ var_imp_avg %>%
 
 ```
 
+|Factor           | mean coeff.|95% CI         |
+|:----------------|-----------:|:--------------|
+|income_household |      -0.075|[-0.05, 0]     |
+|site             |      -0.010|[-0.02, 0]     |
+|race_ethnicity   |      -0.482|[-0.39, -0.75] |
+|education        |      -0.118|[-0.09, -0.2]  |
 
+
+|Factor           | mean coeff.|95% CI         |
+|:----------------|-----------:|:--------------|
+|income_household |      -0.084|[-0.05, 0]     |
+|site             |      -0.009|[-0.02, 0]     |
+|race_ethnicity   |      -0.480|[-0.39, -0.74] |
+|education        |      -0.119|[-0.09, -0.19] |
+
+
+|Factor           | mean coeff.|95% CI         |
+|:----------------|-----------:|:--------------|
+|income_household |      -0.069|[-0.05, -0.15] |
+|site             |      -0.004|[-0.01, 0]     |
+|race_ethnicity   |      -0.400|[-0.36, -0.54] |
+|education        |      -0.119|[-0.11, -0.14] |
+
+|Factor           | mean coeff.|95% CI         |
+|:----------------|-----------:|:--------------|
+|income_household |      -0.065|[-0.05, -0.1]  |
+|site             |      -0.001|[-0.01, 0]     |
+|race_ethnicity   |      -0.386|[-0.37, -0.43] |
+|education        |      -0.112|[-0.11, -0.13] |
+
+|Factor           | mean coeff.|95% CI         |
+|:----------------|-----------:|:--------------|
+|income_household |      -0.060|[-0.05, -0.09] |
+|site             |      -0.001|[0, 0]         |
+|race_ethnicity   |      -0.384|[-0.37, -0.43] |
+|education        |      -0.112|[-0.11, -0.12] |
+
+|Factor           | mean coeff.|95% CI         |
+|:----------------|-----------:|:--------------|
+|income_household |      -0.064|[-0.05, -0.09] |
+|site             |      -0.001|[0, 0]         |
+|race_ethnicity   |      -0.386|[-0.37, -0.42] |
+|education        |      -0.111|[-0.11, -0.12] |
 
 |Factor           | mean coeff.|95% CI         |
 |:----------------|-----------:|:--------------|
 |income_household |      -0.013|[-0.01, 0]     |
 |race_ethnicity   |      -0.317|[-0.3, -0.36]  |
 |education        |      -0.128|[-0.13, -0.14] | 
+
+
 
 # Basic descriptive characteristics
 
