@@ -22,7 +22,7 @@ fit <- cv.glmnet(X, y, alpha = 1, family = "multinomial", parallel = T)
 plot(fit)
 
 # Identify the lambda value with the lowest cross-validation error
-best_lambda <- fit$lambda.min
+best_lambda <- fit$lambda.1se
 
 # Fit final LASSO model with the selected lambda value
 lasso_model <- glmnet(X, y, alpha = 1, lambda = best_lambda, family = "multinomial", parallel = T)
