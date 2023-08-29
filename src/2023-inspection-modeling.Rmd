@@ -6,10 +6,9 @@ date: "`r format(Sys.time(), '%d %B, %Y' )`"
 institute: Virginia Institute for Psychiatric and Behavioral Genetics 
 lang: en
 output:
-  html_notebook:
+  html_document:
     code_folding: hide
     highlight: zenburn
-    theme: flatly
     toc: yes
     df_print: paged    
     toc_float: yes
@@ -17,13 +16,14 @@ output:
 ---
 
 
-```{r setup, include=FALSE}
+```{r setup, results = "hide", message = F, warning = F}
 
 c( # I use linux, this saves my time loading/installing packages
   "ProjectTemplate", "here", "stringr",
   "dplyr", "knitr", "ggplot2", "tabplot",
   "patchwork", "tableone", "tidyr", "visdat", "glmnet",
-  "doParallel", "kableExtra", "dtplyr", "purrr"
+  "doParallel", "kableExtra", "dtplyr", "purrr",
+  "kableExtra"
 ) |>
   lapply(function(x) {
     if (!require(x, character.only = TRUE)) {
@@ -74,7 +74,7 @@ theme_luis <- function() {
 }
 
 # register parallel backend
-cl <- makeCluster(detectCores(), outfile = "")
+cl <- makeCluster(detectCores()-3, outfile = "")
 registerDoParallel(cl)
 ```
 
@@ -85,12 +85,50 @@ retention  <- read.csv("~/Downloads/dataIndiv_ID_2023-03-08.csv") %>%
   filter(event == "Baseline" | event == "1 Year") %>%
   select(pguid, event, visit_status_aggr, income_household, site, race_ethnicity, education) %>%
   mutate(missed = ifelse(visit_status_aggr == "Missed (explained)" |
-                visit_status_aggr == "Missed (unexplained)", 1, 0),
-  site = as.factor(site),
-  race_ethnicity = factor(race_ethnicity),
-  education = factor(education),
-  income_household = factor(income_household)
-  )
+                         visit_status_aggr == "Missed (unexplained)", 0, 1),
+         site = as.factor(site),
+         race_ethnicity = factor(race_ethnicity),
+         education = factor(education, ordered =T, 
+                            levels = c("1st grade",
+                                       "2nd grade",
+                                       "3rd grade",
+                                       "4th grade",
+                                       "5th grade",
+                                       "6th grade",
+                                       "7th grade",
+                                       "8th grade",
+                                       "9th grade",
+                                       "10th grade",
+                                       "11th grade",
+                                       "12th grade, no diploma",
+                                       "High school graduate",
+                                       "Some college, no degree",
+                                       "Associate degree: Occupational, Technical, or Vocational",
+                                       "Associate degree: Academic Program",
+                                       "Bachelor's degree (ex. BA, AB, BS, BBS)",
+                                       "Master's degree (ex. MA, MS, MEng, MEd, MBA)",
+                                       "Professional School degree (ex. MD, DDS, DVN, JD)",
+                                       "Doctoral degree (ex. PhD, EdD)",
+                                       "GED or equivalent",
+                                       "Refused to answer")),
+         income_household = factor(income_household, ordered = T,
+                                   levels = c("<25k",
+                                              "25k-50k",
+                                              "50k-75k",
+                                              "75k-100k",
+                                              "100k-200k",
+                                              ">200k",
+                                              "Don't know",
+                                              "Refuse to answer")),
+         # drop levels for dont know and refuse
+         income_household = droplevels(income_household, c("Don't know", "Refuse to answer")),
+         education = droplevels(education, c("Refused to answer")),
+         income_household = as.numeric(income_household),
+         education = as.numeric(education)
+  ) %>% 
+  drop_na(income_household, education)
+
+
 
 # below is a version with wide format, which is the correct way, but there is an oddity in
 # the data that the values for some demographic info only appear at the follow up, not at the baseline
@@ -118,14 +156,10 @@ retention  <- read.csv("~/Downloads/dataIndiv_ID_2023-03-08.csv") %>%
 ```
 
 # Modeling
-# Leave-one-out cross validation and coeff
+# Leave-one-site-out cross validation and coeff
 
 
-The typical subsetting between test and training return less stable coeffs. Hence, trying LOOCV, which returned more stable results.
-
-- Next step will be to unpack the levels of these ordinal vars. Currently they seem to point to the wrong direction (negative effect on missing a visit).
-
-```{r}
+```{r results="hide"}
 
 # Initialize empty vectors for storing results
 lambda_values <- c()
@@ -158,7 +192,7 @@ for (isite in unique(retention$site)) {
   # Perform cross-validated glmnet model fitting
   cv_model <- cv.glmnet(predictors_train, outcome_train,
                         nfolds = 21,  # Use LOOCV
-                family = "multinomial",
+                family = "binomial",
   parallel =T)
 
   # Get the best lambda
@@ -169,7 +203,7 @@ for (isite in unique(retention$site)) {
                 alpha = 1,
                 type.measure = "mse",
                 lambda = best_lambda,
-                family = "multinomial",
+                family = "binomial",
                 intercept = FALSE)
 
   var_imp <- broom::tidy(fit)
@@ -192,10 +226,8 @@ for (isite in unique(retention$site)) {
   }
 }
 
-
-
 a <- var_imp_avg %>%
-  filter(class == 0) %>%
+  # filter(class == 0) %>%
   group_by(term) %>%
   summarise(avg_coef = mean(estimate), 
             n = n(),
@@ -207,28 +239,34 @@ a <- var_imp_avg %>%
 
 ```
 
-# Factors that are associated with missing a visit, only those that are consistently important across sites
+
+# Factors  associated w returning to follow-up, consistently across sites {.tabset}
+
+## Table 
 
 ```{r}
 
 a %>% 
   select(term, avg_coef, lower, upper) %>%
   # decreasing avg_coef
-  arrange(avg_coef) %>%
+  arrange(desc(avg_coef)) %>%
   #mutate(Importance = round(Importance, 2)) %>% 
   kableExtra::kbl(booktabs = T,
                   col.names = c("Factor", "mean coeff.", "95% CI - lower", "95% CI - upper"),
                   escape = TRUE) %>%
-  kable_styling(latex_options = c("striped", "hold_position", "repeat_header"))
+  kable_styling(latex_options = c("striped", "hold_position", "repeat_header"),
+  full_width = F)
 
 ```
 
-# Point-in-range plot - predicting retention
+## Point-in-range plot - predicting retention 
 
 ```{r}
 
 # generate a point-in-range plot similar to the table above
 a %>%
+  ungroup() %>%
+  # arrange by avg_coef
   ggplot(aes(x = term, y = avg_coef)) +
   geom_point() +
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.2) +
@@ -239,28 +277,64 @@ a %>%
 
 ```
 
+# GLMnet model performance {.tabset}
+## The lambda space
+
+
+```{r}
+plot(cv_model)
+```
+
+## Plot last fit
+
+It does not work too well in the Leave-one-site-out cv, figure out how to provide this plot in this case.
+
+
+```{r}
+plot(fit, xvar = "dev", label = TRUE)
+```
+
+
+
 
 # Basic descriptive characteristics
+
+## Missingness {.tabset}
+
+### Tabplot 
+
+```{r}
+library(tabplot)
+tableplot(retention)
+
+```
+
+### Vizmiss
+
+```{r}
+library(visdat)
+vis_miss(retention)
+
+```
 
 ## Distribution of age by sex
 
 
-Couldn't find the variable with sex in this set
+Category names? 
 
 ```{r age-by-sex, echo = T}
+
 dataIndiv_ID_2023.03.08 %>%
-  ggplot(aes(as.numeric(interview_age), fill = kbisgm_assigned_sex_6yr)) +
+  filter(kbi_gender %in% c(1, 2, 3)) %>%
+  ggplot(aes(as.numeric(interview_age), fill = as.factor(kbi_gender))) +
   geom_density(alpha = .3) +
   labs(
     title = "Age Male x Female", x = "Age",
     y = "Density"
   ) +
   theme_luis()
-```
 
 
-
-```{r}
 ```
 
 
